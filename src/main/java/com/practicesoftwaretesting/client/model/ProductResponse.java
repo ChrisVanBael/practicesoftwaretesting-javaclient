@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import com.practicesoftwaretesting.client.model.BrandResponse;
 import com.practicesoftwaretesting.client.model.CategoryResponse;
 import com.practicesoftwaretesting.client.model.ImageResponse;
-import com.tesuqa.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.math.BigDecimal;
 /**
