@@ -170,7 +170,7 @@
 
   <dependencies>
     <dependency>
-      <groupId>com.practicesoftwaretesting.core.v3</groupId>
+      <groupId>io.swagger.core.v3</groupId>
       <artifactId>swagger-annotations</artifactId>
       <version>${swagger-core-version}</version>
     </dependency>
