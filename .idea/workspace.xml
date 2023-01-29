@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f3c18ab9-675e-4de7-94e9-76f9b47a9e79" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="sprint1" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="2KzunWz0bHX8PvoNiCcELCmwPXu" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f3c18ab9-675e-4de7-94e9-76f9b47a9e79" name="Changes" comment="" />
+      <created>1674989899944</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1674989899944</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Added README.md">
+      <created>1674990200072</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1674990200072</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added and adapted generated client for v1">
+      <created>1674991951394</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1674991951394</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added and adapted generated client for v2">
+      <created>1674992385391</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1674992385391</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added and adapted generated client for v2">
+      <created>1674992569134</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1674992569134</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Changed name of groupId">
+      <created>1674992607436</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1674992607436</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added generated client for v3">
+      <created>1674993153534</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1674993153534</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added generated client for v3">
+      <created>1674994084257</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1674994084257</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Added maven and missing files">
+      <created>1674994668340</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1674994668340</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Added maven and missing files">
+      <created>1674995049888</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1674995049888</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Added maven and missing files">
+      <created>1674995076801</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1674995076801</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Added maven and missing files">
+      <created>1674995358413</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1674995358413</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Added v4 to sprint4">
+      <created>1674995944533</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1674995944533</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Added v5 to sprint5">
+      <created>1674996515042</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1674996515042</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added README.md" />
+    <MESSAGE value="Added and adapted generated client for v1" />
+    <MESSAGE value="Added and adapted generated client for v2" />
+    <MESSAGE value="Changed name of groupId" />
+    <MESSAGE value="Added generated client for v3" />
+    <MESSAGE value="Added maven and missing files" />
+    <MESSAGE value="Added v4 to sprint4" />
+    <MESSAGE value="Added v5 to sprint5" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added v5 to sprint5" />
+  </component>
+</project>
