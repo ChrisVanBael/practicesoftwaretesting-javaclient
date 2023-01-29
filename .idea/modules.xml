@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/practicesoftwaretesting-javaclient.iml" filepath="$PROJECT_DIR$/.idea/practicesoftwaretesting-javaclient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/practicesoftwaretesting-javaclient.iml" filepath="$PROJECT_DIR$/practicesoftwaretesting-javaclient.iml" />
     </modules>
   </component>
 </project>
