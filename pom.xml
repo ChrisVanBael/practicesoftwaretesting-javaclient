@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.tesuqa</groupId>
-  <artifactId>practicesoftwaretesting-javaclient</artifactId>
+  <groupId>com.practicesoftwaretesting</groupId>
+  <artifactId>swagger-java-client</artifactId>
   <packaging>jar</packaging>
-  <name>practicesoftwaretesting-javaclient</name>
-  <version>0.1.0</version>
+  <name>swagger-java-client</name>
+  <version>1.0.0</version>
   <url>https://github.com/swagger-api/swagger-codegen</url>
   <description>Swagger Java</description>
   <scm>
@@ -27,10 +27,10 @@
 
   <developers>
     <developer>
-      <name>Chris Van Bael</name>
-      <email>chris@tesuqa.com</email>
-      <organization>tesuqa</organization>
-      <organizationUrl>https://www.tesuqa.com</organizationUrl>
+      <name>Swagger</name>
+      <email>apiteam@swagger.io</email>
+      <organization>Swagger</organization>
+      <organizationUrl>http://swagger.io</organizationUrl>
     </developer>
   </developers>
 
@@ -170,7 +170,7 @@
 
   <dependencies>
     <dependency>
-      <groupId>com.tesuqa.core.v3</groupId>
+      <groupId>com.practicesoftwaretesting.core.v3</groupId>
       <artifactId>swagger-annotations</artifactId>
       <version>${swagger-core-version}</version>
     </dependency>

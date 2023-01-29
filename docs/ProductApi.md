@@ -1,6 +1,6 @@
 # ProductApi
 
-All URIs are relative to *https://api-v1.practicesoftwaretesting.com*
+All URIs are relative to *https://api-v2.practicesoftwaretesting.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**getProduct**](ProductApi.md#getProduct) | **GET** /products/{productId} | Retrieve specific product
 [**getProducts**](ProductApi.md#getProducts) | **GET** /products | Retrieve all products
 [**getRelatedProducts**](ProductApi.md#getRelatedProducts) | **GET** /products/{productId}/related | Retrieve related products
+[**searchProduct**](ProductApi.md#searchProduct) | **GET** /products/search | Retrieve specific products matching the search query
 [**storeProduct**](ProductApi.md#storeProduct) | **POST** /products | Store new product
 [**updateProduct**](ProductApi.md#updateProduct) | **PUT** /products/{productId} | Update specific product
 
@@ -100,7 +101,7 @@ No authorization required
 
 <a name="getProducts"></a>
 # **getProducts**
-> List&lt;ProductResponse&gt; getProducts(byBrand, byCategory, isRental)
+> InlineResponse2001 getProducts(byBrand, byCategory, isRental)
 
 Retrieve all products
 
@@ -118,7 +119,7 @@ Integer byBrand = 56; // Integer | Id of brand
 Integer byCategory = 56; // Integer | Id of category
 String isRental = "isRental_example"; // String | Indication if we like to retrieve rentals products
 try {
-    List<ProductResponse> result = apiInstance.getProducts(byBrand, byCategory, isRental);
+    InlineResponse2001 result = apiInstance.getProducts(byBrand, byCategory, isRental);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductApi#getProducts");
@@ -136,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;ProductResponse&gt;**](ProductResponse.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 
@@ -182,6 +183,51 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List&lt;ProductResponse&gt;**](ProductResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="searchProduct"></a>
+# **searchProduct**
+> InlineResponse2001 searchProduct(q)
+
+Retrieve specific products matching the search query
+
+Search is performed on the &#x60;name&#x60; column
+
+### Example
+```java
+// Import classes:
+//import com.practicesoftwaretesting.client.ApiException;
+//import com.practicesoftwaretesting.client.api.ProductApi;
+
+
+ProductApi apiInstance = new ProductApi();
+String q = "q_example"; // String | A query phrase
+try {
+    InlineResponse2001 result = apiInstance.searchProduct(q);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ProductApi#searchProduct");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **q** | **String**| A query phrase |
+
+### Return type
+
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 

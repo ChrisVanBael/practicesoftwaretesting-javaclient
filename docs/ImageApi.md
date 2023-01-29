@@ -1,6 +1,6 @@
 # ImageApi
 
-All URIs are relative to *https://api-v1.practicesoftwaretesting.com*
+All URIs are relative to *https://api-v2.practicesoftwaretesting.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

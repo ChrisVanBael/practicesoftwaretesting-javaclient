@@ -1,12 +1,13 @@
 # BrandApi
 
-All URIs are relative to *https://api-v1.practicesoftwaretesting.com*
+All URIs are relative to *https://api-v2.practicesoftwaretesting.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**deleteBrand**](BrandApi.md#deleteBrand) | **DELETE** /brands/{brandId} | Delete specific brand
 [**getBrand**](BrandApi.md#getBrand) | **GET** /brands/{brandId} | Retrieve specific brand
 [**getBrands**](BrandApi.md#getBrands) | **GET** /brands | Retrieve all brands
+[**searchBrand**](BrandApi.md#searchBrand) | **GET** /brands/search | Retrieve specific brands matching the search query
 [**storeBrand**](BrandApi.md#storeBrand) | **POST** /brands | Store new brand
 [**updateBrand**](BrandApi.md#updateBrand) | **PUT** /brands/{brandId} | Update specific brand
 
@@ -124,6 +125,51 @@ try {
 
 ### Parameters
 This endpoint does not need any parameter.
+
+### Return type
+
+[**List&lt;BrandResponse&gt;**](BrandResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="searchBrand"></a>
+# **searchBrand**
+> List&lt;BrandResponse&gt; searchBrand(q)
+
+Retrieve specific brands matching the search query
+
+Search is performed on the &#x60;name&#x60; column
+
+### Example
+```java
+// Import classes:
+//import com.practicesoftwaretesting.client.ApiException;
+//import com.practicesoftwaretesting.client.api.BrandApi;
+
+
+BrandApi apiInstance = new BrandApi();
+String q = "q_example"; // String | A query phrase
+try {
+    List<BrandResponse> result = apiInstance.searchBrand(q);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling BrandApi#searchBrand");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **q** | **String**| A query phrase |
 
 ### Return type
 
