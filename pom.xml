@@ -5,7 +5,7 @@
   <artifactId>practicesoftwaretesting-javaclient</artifactId>
   <packaging>jar</packaging>
   <name>practicesoftwaretesting-javaclient</name>
-  <version>0.1.0</version>
+  <version>0.3.0</version>
   <url>https://github.com/swagger-api/swagger-codegen</url>
   <description>Swagger Java</description>
   <scm>
@@ -170,7 +170,7 @@
 
   <dependencies>
     <dependency>
-      <groupId>com.tesuqa.core.v3</groupId>
+      <groupId>com.practicesoftwaretesting.core.v3</groupId>
       <artifactId>swagger-annotations</artifactId>
       <version>${swagger-core-version}</version>
     </dependency>

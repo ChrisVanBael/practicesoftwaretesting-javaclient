@@ -12,9 +12,7 @@
 
 package com.practicesoftwaretesting.client.api;
 
-import com.practicesoftwaretesting.client.model.ImageResponse;
-import com.practicesoftwaretesting.client.model.InlineResponse404;
-import com.practicesoftwaretesting.client.model.InlineResponse405;
+import com.practicesoftwaretesting.client.model.InlineResponse2002;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -26,24 +24,24 @@ import java.util.Map;
 
 
 /**
- * API tests for ImageApi
+ * API tests for PaymentApi
  */
 @Ignore
-public class ImageApiTest {
+public class PaymentApiTest {
 
-    private final ImageApi api = new ImageApi();
+    private final PaymentApi api = new PaymentApi();
 
     /**
-     * Retrieve all images
+     * Check payment
      *
-     * Retrieve all images
+     * Check payment
      *
      * @throws Exception
      *          if the Api call fails
      */
     @Test
-    public void getImagesTest() throws Exception {
-        List<ImageResponse> response = api.getImages();
+    public void checkPaymentTest() throws Exception {
+        InlineResponse2002 response = api.checkPayment();
 
         // TODO: test validations
     }

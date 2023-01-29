@@ -26,9 +26,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import com.practicesoftwaretesting.client.model.ImageResponse;
-import com.practicesoftwaretesting.client.model.InlineResponse404;
-import com.practicesoftwaretesting.client.model.InlineResponse405;
+import com.practicesoftwaretesting.client.model.InlineResponse2002;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -36,14 +34,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ImageApi {
+public class PaymentApi {
     private ApiClient apiClient;
 
-    public ImageApi() {
+    public PaymentApi() {
         this(Configuration.getDefaultApiClient());
     }
 
-    public ImageApi(ApiClient apiClient) {
+    public PaymentApi(ApiClient apiClient) {
         this.apiClient = apiClient;
     }
 
@@ -56,17 +54,17 @@ public class ImageApi {
     }
 
     /**
-     * Build call for getImages
+     * Build call for checkPayment
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getImagesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call checkPaymentCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/images";
+        String localVarPath = "/payment/check";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -100,13 +98,13 @@ public class ImageApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getImagesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call checkPaymentValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        com.squareup.okhttp.Call call = getImagesCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = checkPaymentCall(progressListener, progressRequestListener);
         return call;
 
         
@@ -116,36 +114,36 @@ public class ImageApi {
     }
 
     /**
-     * Retrieve all images
-     * Retrieve all images
-     * @return List&lt;ImageResponse&gt;
+     * Check payment
+     * Check payment
+     * @return InlineResponse2002
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<ImageResponse> getImages() throws ApiException {
-        ApiResponse<List<ImageResponse>> resp = getImagesWithHttpInfo();
+    public InlineResponse2002 checkPayment() throws ApiException {
+        ApiResponse<InlineResponse2002> resp = checkPaymentWithHttpInfo();
         return resp.getData();
     }
 
     /**
-     * Retrieve all images
-     * Retrieve all images
-     * @return ApiResponse&lt;List&lt;ImageResponse&gt;&gt;
+     * Check payment
+     * Check payment
+     * @return ApiResponse&lt;InlineResponse2002&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<ImageResponse>> getImagesWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = getImagesValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<List<ImageResponse>>(){}.getType();
+    public ApiResponse<InlineResponse2002> checkPaymentWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = checkPaymentValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<InlineResponse2002>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Retrieve all images (asynchronously)
-     * Retrieve all images
+     * Check payment (asynchronously)
+     * Check payment
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getImagesAsync(final ApiCallback<List<ImageResponse>> callback) throws ApiException {
+    public com.squareup.okhttp.Call checkPaymentAsync(final ApiCallback<InlineResponse2002> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -166,8 +164,8 @@ public class ImageApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getImagesValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<ImageResponse>>(){}.getType();
+        com.squareup.okhttp.Call call = checkPaymentValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InlineResponse2002>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

@@ -1,32 +1,32 @@
-# ImageApi
+# PaymentApi
 
 All URIs are relative to *https://api-v3.practicesoftwaretesting.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getImages**](ImageApi.md#getImages) | **GET** /images | Retrieve all images
+[**checkPayment**](PaymentApi.md#checkPayment) | **POST** /payment/check | Check payment
 
-<a name="getImages"></a>
-# **getImages**
-> List&lt;ImageResponse&gt; getImages()
+<a name="checkPayment"></a>
+# **checkPayment**
+> InlineResponse2002 checkPayment()
 
-Retrieve all images
+Check payment
 
-Retrieve all images
+Check payment
 
 ### Example
 ```java
 // Import classes:
 //import com.practicesoftwaretesting.client.ApiException;
-//import com.practicesoftwaretesting.client.api.ImageApi;
+//import com.practicesoftwaretesting.client.api.PaymentApi;
 
 
-ImageApi apiInstance = new ImageApi();
+PaymentApi apiInstance = new PaymentApi();
 try {
-    List<ImageResponse> result = apiInstance.getImages();
+    InlineResponse2002 result = apiInstance.checkPayment();
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ImageApi#getImages");
+    System.err.println("Exception when calling PaymentApi#checkPayment");
     e.printStackTrace();
 }
 ```
@@ -36,7 +36,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List&lt;ImageResponse&gt;**](ImageResponse.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 

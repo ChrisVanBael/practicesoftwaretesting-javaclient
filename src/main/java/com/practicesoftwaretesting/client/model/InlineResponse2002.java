@@ -22,51 +22,30 @@ import com.google.gson.stream.JsonWriter;
 import com.practicesoftwaretesting.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 /**
- * CategoryRequest
+ * InlineResponse2002
  */
 
 @javax.annotation.Generated(value = "com.practicesoftwaretesting.codegen.v3.generators.java.JavaClientCodegen", date = "2023-01-29T11:45:28.552Z[GMT]")
-public class CategoryRequest {
-  @SerializedName("name")
-  private String name = null;
+public class InlineResponse2002 {
+  @SerializedName("success")
+  private Boolean success = null;
 
-  @SerializedName("slug")
-  private String slug = null;
-
-  public CategoryRequest name(String name) {
-    this.name = name;
+  public InlineResponse2002 success(Boolean success) {
+    this.success = success;
     return this;
   }
 
    /**
-   * Get name
-   * @return name
+   * Get success
+   * @return success
   **/
-  @Schema(example = "new category", description = "")
-  public String getName() {
-    return name;
+  @Schema(example = "false", description = "")
+  public Boolean isSuccess() {
+    return success;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public CategoryRequest slug(String slug) {
-    this.slug = slug;
-    return this;
-  }
-
-   /**
-   * URL part, words separated by hyphen
-   * @return slug
-  **/
-  @Schema(example = "new-category", description = "URL part, words separated by hyphen")
-  public String getSlug() {
-    return slug;
-  }
-
-  public void setSlug(String slug) {
-    this.slug = slug;
+  public void setSuccess(Boolean success) {
+    this.success = success;
   }
 
 
@@ -78,24 +57,22 @@ public class CategoryRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CategoryRequest categoryRequest = (CategoryRequest) o;
-    return Objects.equals(this.name, categoryRequest.name) &&
-        Objects.equals(this.slug, categoryRequest.slug);
+    InlineResponse2002 inlineResponse2002 = (InlineResponse2002) o;
+    return Objects.equals(this.success, inlineResponse2002.success);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, slug);
+    return Objects.hash(success);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CategoryRequest {\n");
+    sb.append("class InlineResponse2002 {\n");
     
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
+    sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("}");
     return sb.toString();
   }

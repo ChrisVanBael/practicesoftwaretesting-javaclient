@@ -7,11 +7,11 @@
             "name": "Testsmith",
             "email": "info@testsmith.io"
         },
-        "version": "0.1.0"
+        "version": "0.3.0"
     },
     "servers": [
         {
-            "url": "https://api-v1.practicesoftwaretesting.com",
+            "url": "https://api-v3.practicesoftwaretesting.com",
             "description": "Deployed environment"
         },
         {
@@ -353,6 +353,74 @@
                     },
                     "422": {
                         "description": "Returns when the server was not able to process the content"
+                    }
+                }
+            }
+        },
+        "/brands/search": {
+            "get": {
+                "tags": [
+                    "Brand"
+                ],
+                "summary": "Retrieve specific brands matching the search query",
+                "description": "Search is performed on the `name` column",
+                "operationId": "searchBrand",
+                "parameters": [
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "description": "A query phrase",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/BrandResponse"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Returns when the resource is not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Resource not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "405": {
+                        "description": "Returns when the method is not allowed for the requested route",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Method is not allowed for the requested route"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -762,6 +830,74 @@
                 }
             }
         },
+        "/categories/search": {
+            "get": {
+                "tags": [
+                    "Category"
+                ],
+                "summary": "Retrieve specific categories matching the search query",
+                "description": "Search is performed on the `name` column",
+                "operationId": "searchCategory",
+                "parameters": [
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "description": "A query phrase",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/CategoryResponse"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Returns when the resource is not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Resource not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "405": {
+                        "description": "Returns when the method is not allowed for the requested route",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Method is not allowed for the requested route"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/images": {
             "get": {
                 "tags": [
@@ -819,6 +955,589 @@
                 }
             }
         },
+        "/invoices": {
+            "get": {
+                "tags": [
+                    "Invoice"
+                ],
+                "summary": "Retrieve all invoices",
+                "description": "`user` retrieves only related invoices",
+                "operationId": "getInvoices",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "current_page": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/InvoiceResponse"
+                                            }
+                                        },
+                                        "next_page_url": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "path": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "per_page": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "prev_page_url": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "to": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "total": {
+                                            "type": "integer",
+                                            "example": 1
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Returns when the resource is not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Resource not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "405": {
+                        "description": "Returns when the method is not allowed for the requested route",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Method is not allowed for the requested route"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Invoice"
+                ],
+                "summary": "Store new invoice",
+                "description": "Store new invoice",
+                "operationId": "storeInvoice",
+                "requestBody": {
+                    "description": "Invoice request object",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/InvoiceRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/InvoiceResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Returns when requested item is not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Requested item not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "405": {
+                        "description": "Returns when the method is not allowed for the requested route",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Method is not allowed for the requested route"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Returns when the server was not able to process the content"
+                    }
+                }
+            }
+        },
+        "/invoices/{invoiceId}": {
+            "get": {
+                "tags": [
+                    "Invoice"
+                ],
+                "summary": "Retrieve specific invoice",
+                "description": "Retrieve specific invoice",
+                "operationId": "getInvoice",
+                "parameters": [
+                    {
+                        "name": "invoiceId",
+                        "in": "path",
+                        "description": "The invoiceId parameter in path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/InvoiceResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Returns when the requested item is not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Requested item not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "405": {
+                        "description": "Returns when the method is not allowed for the requested route",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Method is not allowed for the requested route"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Invoice"
+                ],
+                "summary": "Update specific invoice",
+                "description": "Update specific invoice",
+                "operationId": "updateInvoice",
+                "parameters": [
+                    {
+                        "name": "invoiceId",
+                        "in": "path",
+                        "description": "The invoiceId parameter in path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Invoice request object",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/InvoiceRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Result of the update",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "description": "",
+                                            "type": "boolean",
+                                            "example": true
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Returns when the resource is not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Resource not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "405": {
+                        "description": "Returns when the method is not allowed for the requested route",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Method is not allowed for the requested route"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Returns when the server was not able to process the content"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Invoice"
+                ],
+                "summary": "Delete specific invoice",
+                "description": "",
+                "operationId": "deleteInvoice",
+                "parameters": [
+                    {
+                        "name": "invoiceId",
+                        "in": "path",
+                        "description": "The invoiceId parameter in path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successful operation"
+                    },
+                    "404": {
+                        "description": "Returns when the resource is not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Resource not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Returns when the entity is used elsewhere"
+                    },
+                    "405": {
+                        "description": "Returns when the method is not allowed for the requested route",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Method is not allowed for the requested route"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Returns when the server was not able to process the content"
+                    }
+                }
+            }
+        },
+        "/invoices/{invoiceId}/status": {
+            "put": {
+                "tags": [
+                    "Invoice"
+                ],
+                "summary": "Update invoice status",
+                "description": "Update invoice status",
+                "operationId": "updateInvoiceStatus",
+                "parameters": [
+                    {
+                        "name": "invoiceId",
+                        "in": "path",
+                        "description": "The invoiceId parameter in path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Invoice request object",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/InvoiceRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Result of the update",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "description": "",
+                                            "type": "boolean",
+                                            "example": true
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Returns when the resource is not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Resource not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "405": {
+                        "description": "Returns when the method is not allowed for the requested route",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Method is not allowed for the requested route"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Returns when the server was not able to process the content"
+                    }
+                }
+            }
+        },
+        "/invoices/search": {
+            "get": {
+                "tags": [
+                    "Invoice"
+                ],
+                "summary": "Retrieve specific invoices matching the search query",
+                "description": "Search is performed on the `invoice_number`, `billing_address` and `status` column",
+                "operationId": "searchInvoice",
+                "parameters": [
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "description": "A query phrase",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "current_page": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/InvoiceResponse"
+                                            }
+                                        },
+                                        "next_page_url": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "path": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "per_page": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "prev_page_url": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "to": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "total": {
+                                            "type": "integer",
+                                            "example": 1
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Returns when the requested item is not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Requested item not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "405": {
+                        "description": "Returns when the method is not allowed for the requested route",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Method is not allowed for the requested route"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/payment/check": {
+            "post": {
+                "tags": [
+                    "Payment"
+                ],
+                "summary": "Check payment",
+                "description": "Check payment",
+                "operationId": "checkPayment",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "Success status"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/products": {
             "get": {
                 "tags": [
@@ -862,10 +1581,43 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/ProductResponse"
-                                    }
+                                    "properties": {
+                                        "current_page": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/ProductResponse"
+                                            }
+                                        },
+                                        "next_page_url": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "path": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "per_page": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "prev_page_url": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "to": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "total": {
+                                            "type": "integer",
+                                            "example": 1
+                                        }
+                                    },
+                                    "type": "object"
                                 }
                             }
                         }
@@ -1277,6 +2029,107 @@
                     }
                 }
             }
+        },
+        "/products/search": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Retrieve specific products matching the search query",
+                "description": "Search is performed on the `name` column",
+                "operationId": "searchProduct",
+                "parameters": [
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "description": "A query phrase",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "current_page": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/ProductResponse"
+                                            }
+                                        },
+                                        "next_page_url": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "path": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "per_page": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "prev_page_url": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "to": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "total": {
+                                            "type": "integer",
+                                            "example": 1
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Returns when the requested item is not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Requested item not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "405": {
+                        "description": "Returns when the method is not allowed for the requested route",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Method is not allowed for the requested route"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -1350,6 +2203,152 @@
                 },
                 "type": "object"
             },
+            "InvoiceRequest": {
+                "title": "InvoiceRequest",
+                "properties": {
+                    "first_name": {
+                        "type": "string"
+                    },
+                    "last_name": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "billing_address": {
+                        "type": "string"
+                    },
+                    "billing_city": {
+                        "type": "string"
+                    },
+                    "billing_country": {
+                        "type": "string"
+                    },
+                    "billing_state": {
+                        "type": "string"
+                    },
+                    "billing_postcode": {
+                        "type": "string"
+                    },
+                    "total": {
+                        "type": "number"
+                    },
+                    "payment_method": {
+                        "type": "string",
+                        "example": "Cash on Delivery"
+                    },
+                    "payment_account_name": {
+                        "type": "string",
+                        "example": "Jogn Doe"
+                    },
+                    "payment_account_number": {
+                        "type": "string",
+                        "example": "0987654345"
+                    },
+                    "invoicelines": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "example": {
+                                "product_id": 9,
+                                "quantity": 1,
+                                "unit_price": 12.01
+                            }
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "InvoiceResponse": {
+                "title": "InvoiceResponse",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "first_name": {
+                        "type": "string"
+                    },
+                    "last_name": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "invoice_date": {
+                        "type": "string",
+                        "example": "2022-10-20 09:49:45"
+                    },
+                    "invoice_number": {
+                        "type": "string",
+                        "example": "INV-2022000002"
+                    },
+                    "billing_address": {
+                        "type": "string"
+                    },
+                    "billing_city": {
+                        "type": "string"
+                    },
+                    "billing_country": {
+                        "type": "string"
+                    },
+                    "billing_state": {
+                        "type": "string"
+                    },
+                    "billing_postcode": {
+                        "type": "string"
+                    },
+                    "total": {
+                        "type": "number"
+                    },
+                    "payment_method": {
+                        "type": "string",
+                        "example": "Cash on Delivery"
+                    },
+                    "payment_account_name": {
+                        "type": "string",
+                        "example": "Jogn Doe"
+                    },
+                    "payment_account_number": {
+                        "type": "string",
+                        "example": "0987654345"
+                    },
+                    "status": {
+                        "type": "string",
+                        "example": "COMPLETED"
+                    },
+                    "status_message": {
+                        "type": "string",
+                        "example": ""
+                    },
+                    "invoicelines": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/InvoiceLineResponse"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "InvoiceLineResponse": {
+                "title": "InvoiceLineResponse",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "unit_price": {
+                        "type": "number"
+                    },
+                    "quantity": {
+                        "type": "integer"
+                    },
+                    "product": {
+                        "$ref": "#/components/schemas/ProductResponse"
+                    }
+                },
+                "type": "object"
+            },
             "ProductRequest": {
                 "title": "ProductRequest",
                 "properties": {
@@ -1374,6 +2373,14 @@
                     "product_image_id": {
                         "type": "integer",
                         "example": 1
+                    },
+                    "is_location_offer": {
+                        "type": "boolean",
+                        "example": 1
+                    },
+                    "is_rental": {
+                        "type": "boolean",
+                        "example": 0
                     }
                 },
                 "type": "object"
@@ -1396,6 +2403,14 @@
                     "price": {
                         "type": "number",
                         "example": 9.99
+                    },
+                    "is_location_offer": {
+                        "type": "boolean",
+                        "example": 1
+                    },
+                    "is_rental": {
+                        "type": "boolean",
+                        "example": 0
                     },
                     "brand": {
                         "$ref": "#/components/schemas/BrandResponse"

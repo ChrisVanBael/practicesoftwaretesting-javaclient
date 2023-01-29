@@ -1,6 +1,6 @@
 # CategoryApi
 
-All URIs are relative to *https://api-v1.practicesoftwaretesting.com*
+All URIs are relative to *https://api-v3.practicesoftwaretesting.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**getCategories**](CategoryApi.md#getCategories) | **GET** /categories | Retrieve all categories
 [**getCategoriesTree**](CategoryApi.md#getCategoriesTree) | **GET** /categories/tree | Retrieve all categories (including subcategories)
 [**getCategory**](CategoryApi.md#getCategory) | **GET** /categories/{categoryId} | Retrieve specific category
+[**searchCategory**](CategoryApi.md#searchCategory) | **GET** /categories/search | Retrieve specific categories matching the search query
 [**storeCategory**](CategoryApi.md#storeCategory) | **POST** /categories | Store new category
 [**updateCategory**](CategoryApi.md#updateCategory) | **PUT** /categories/{categoryId} | Update specific category
 
@@ -174,6 +175,51 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CategoryResponse**](CategoryResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="searchCategory"></a>
+# **searchCategory**
+> List&lt;CategoryResponse&gt; searchCategory(q)
+
+Retrieve specific categories matching the search query
+
+Search is performed on the &#x60;name&#x60; column
+
+### Example
+```java
+// Import classes:
+//import com.practicesoftwaretesting.client.ApiException;
+//import com.practicesoftwaretesting.client.api.CategoryApi;
+
+
+CategoryApi apiInstance = new CategoryApi();
+String q = "q_example"; // String | A query phrase
+try {
+    List<CategoryResponse> result = apiInstance.searchCategory(q);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CategoryApi#searchCategory");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **q** | **String**| A query phrase |
+
+### Return type
+
+[**List&lt;CategoryResponse&gt;**](CategoryResponse.md)
 
 ### Authorization
 
