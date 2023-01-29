@@ -7,11 +7,11 @@
             "name": "Testsmith",
             "email": "info@testsmith.io"
         },
-        "version": "0.4.0"
+        "version": "1.0.0"
     },
     "servers": [
         {
-            "url": "https://api-v4.practicesoftwaretesting.com",
+            "url": "https://api.practicesoftwaretesting.com",
             "description": "Deployed environment"
         },
         {
@@ -298,7 +298,7 @@
                     "Brand"
                 ],
                 "summary": "Delete specific brand",
-                "description": "",
+                "description": "Admin role is required to delete a specific brand",
                 "operationId": "deleteBrand",
                 "parameters": [
                     {
@@ -315,6 +315,22 @@
                 "responses": {
                     "204": {
                         "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Returns when user is not authenticated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthorized"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     },
                     "404": {
                         "description": "Returns when the resource is not found",
@@ -354,7 +370,12 @@
                     "422": {
                         "description": "Returns when the server was not able to process the content"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
             }
         },
         "/brands/search": {
@@ -771,7 +792,7 @@
                     "Category"
                 ],
                 "summary": "Delete specific category",
-                "description": "",
+                "description": "Admin role is required to delete a specific category",
                 "operationId": "deleteCategory",
                 "parameters": [
                     {
@@ -788,6 +809,22 @@
                 "responses": {
                     "204": {
                         "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Returns when user is not authenticated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthorized"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     },
                     "404": {
                         "description": "Returns when the resource is not found",
@@ -827,7 +864,12 @@
                     "422": {
                         "description": "Returns when the server was not able to process the content"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
             }
         },
         "/categories/search": {
@@ -904,7 +946,7 @@
                     "Contact"
                 ],
                 "summary": "Retrieve messages",
-                "description": "`user` retrieves only related messages",
+                "description": "`admin` retrieves all messages, `user` retrieves only related messages",
                 "operationId": "getMessages",
                 "responses": {
                     "200": {
@@ -1458,7 +1500,7 @@
                 "description": "User role is required to store new favorite",
                 "operationId": "storeFavorite",
                 "requestBody": {
-                    "description": "Favorite request object",
+                    "description": "Brand request object",
                     "required": true,
                     "content": {
                         "application/json": {
@@ -1643,7 +1685,7 @@
                     }
                 ],
                 "requestBody": {
-                    "description": "Favorite request object",
+                    "description": "Brand request object",
                     "required": true,
                     "content": {
                         "application/json": {
@@ -1876,7 +1918,7 @@
                     "Invoice"
                 ],
                 "summary": "Retrieve all invoices",
-                "description": "`user` retrieves only related invoices",
+                "description": "`admin` retrieves all invoices, `user` retrieves only related invoices",
                 "operationId": "getInvoices",
                 "responses": {
                     "200": {
@@ -2264,7 +2306,7 @@
                     "Invoice"
                 ],
                 "summary": "Delete specific invoice",
-                "description": "",
+                "description": "Admin role is required to delete a specific invoice",
                 "operationId": "deleteInvoice",
                 "parameters": [
                     {
@@ -2614,6 +2656,24 @@
                         "schema": {
                             "type": "string"
                         }
+                    },
+                    {
+                        "name": "between",
+                        "in": "query",
+                        "description": "Can be used to define a price range, like: price,10,30",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "Can be used to sort based on specific column value, like: name,asc OR name,desc OR price,asc OR price,desc",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -2944,7 +3004,7 @@
                     "Product"
                 ],
                 "summary": "Delete specific product",
-                "description": "",
+                "description": "Admin role is required to delete a specific product",
                 "operationId": "deleteProduct",
                 "parameters": [
                     {
@@ -2960,6 +3020,22 @@
                 "responses": {
                     "204": {
                         "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Returns when user is not authenticated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthorized"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     },
                     "404": {
                         "description": "Returns when the resource is not found",
@@ -2999,7 +3075,12 @@
                     "422": {
                         "description": "Returns when the server was not able to process the content"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
             }
         },
         "/products/{productId}/related": {
@@ -3170,6 +3251,522 @@
                         }
                     }
                 }
+            }
+        },
+        "/reports/total-sales-per-country": {
+            "get": {
+                "tags": [
+                    "Report"
+                ],
+                "summary": "Get total sales per country",
+                "description": "`Admin` role is required to get total sales per country",
+                "operationId": "getTotalSalesPerCountry",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "example": {
+                                            "total_sales": 9.99,
+                                            "billing_country": "The Netherlands"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Returns when user is not authenticated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthorized"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Returns when the resource is not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Resource not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/reports/top10-purchased-products": {
+            "get": {
+                "tags": [
+                    "Report"
+                ],
+                "summary": "Get top 10 purchased products",
+                "description": "`Admin` role is required to get top 10 purchased products",
+                "operationId": "getTopPurchasedProducts",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "example": {
+                                            "name": "item",
+                                            "count": 2
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Returns when user is not authenticated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthorized"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Returns when the resource is not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Resource not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/reports/top10-best-selling-categories": {
+            "get": {
+                "tags": [
+                    "Report"
+                ],
+                "summary": "Get top 10 best selling categories",
+                "description": "`Admin` role is required to get top 10 best selling categories",
+                "operationId": "getBestSellingCategories",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "example": {
+                                            "category_name": "item",
+                                            "total_earned": 2
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Returns when user is not authenticated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthorized"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Returns when the resource is not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Resource not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/reports/total-sales-of-years": {
+            "get": {
+                "tags": [
+                    "Report"
+                ],
+                "summary": "Get total sales of years",
+                "description": "`Admin` role is required to get total sales of years",
+                "operationId": "getTotalSalesOfYears",
+                "parameters": [
+                    {
+                        "name": "years",
+                        "in": "query",
+                        "description": "Number of years",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        },
+                        "example": 2
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "example": {
+                                            "year": 2022,
+                                            "total": 2
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Returns when user is not authenticated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthorized"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Returns when the resource is not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Resource not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/reports/average-sales-per-month": {
+            "get": {
+                "tags": [
+                    "Report"
+                ],
+                "summary": "Get average sales per month",
+                "description": "`Admin` role is required to get average sales per month",
+                "operationId": "getAverageSalesPerMonth",
+                "parameters": [
+                    {
+                        "name": "year",
+                        "in": "query",
+                        "description": "Specific year",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 2022
+                        },
+                        "example": 2021
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "example": {
+                                            "month": 1,
+                                            "average": 2,
+                                            "amount": 9.99
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Returns when user is not authenticated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthorized"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Returns when the resource is not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Resource not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/reports/average-sales-per-week": {
+            "get": {
+                "tags": [
+                    "Report"
+                ],
+                "summary": "Get average sales per week",
+                "description": "`Admin` role is required to get average sales per week",
+                "operationId": "getAverageSalesPerWeek",
+                "parameters": [
+                    {
+                        "name": "year",
+                        "in": "query",
+                        "description": "Specific year",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 2022
+                        },
+                        "example": 2021
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "example": {
+                                            "week": 1,
+                                            "average": 2,
+                                            "amount": 9.99
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Returns when user is not authenticated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthorized"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Returns when the resource is not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Resource not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/reports/customers-by-country": {
+            "get": {
+                "tags": [
+                    "Report"
+                ],
+                "summary": "Get customers by country",
+                "description": "`Admin` role is required to get customers by country",
+                "operationId": "getCustomersByCountry",
+                "parameters": [
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "description": "Specific year",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": "The Netherlands"
+                        },
+                        "example": 2021
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "example": {
+                                            "customer": "Jane Doe",
+                                            "country": "The Netherlands"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Returns when user is not authenticated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthorized"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Returns when the resource is not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Resource not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
             }
         },
         "/users": {
@@ -3742,7 +4339,7 @@
                     "User"
                 ],
                 "summary": "Delete specific user",
-                "description": "",
+                "description": "Admin role is required to delete a specific user",
                 "operationId": "deleteUser",
                 "parameters": [
                     {
@@ -4210,6 +4807,10 @@
                         "type": "integer",
                         "example": 1
                     },
+                    "is_location_offer": {
+                        "type": "boolean",
+                        "example": 1
+                    },
                     "is_rental": {
                         "type": "boolean",
                         "example": 0
@@ -4235,6 +4836,10 @@
                     "price": {
                         "type": "number",
                         "example": 9.99
+                    },
+                    "is_location_offer": {
+                        "type": "boolean",
+                        "example": 1
                     },
                     "is_rental": {
                         "type": "boolean",

@@ -1,6 +1,6 @@
 # ContactApi
 
-All URIs are relative to *https://api-v4.practicesoftwaretesting.com*
+All URIs are relative to *https://api.practicesoftwaretesting.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 Retrieve messages
 
-&#x60;user&#x60; retrieves only related messages
+&#x60;admin&#x60; retrieves all messages, &#x60;user&#x60; retrieves only related messages
 
 ### Example
 ```java

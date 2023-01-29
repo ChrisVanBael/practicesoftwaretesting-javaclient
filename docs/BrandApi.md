@@ -1,6 +1,6 @@
 # BrandApi
 
-All URIs are relative to *https://api-v4.practicesoftwaretesting.com*
+All URIs are relative to *https://api.practicesoftwaretesting.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -17,11 +17,18 @@ Method | HTTP request | Description
 
 Delete specific brand
 
+Admin role is required to delete a specific brand
+
 ### Example
 ```java
 // Import classes:
+//import com.practicesoftwaretesting.client.ApiClient;
 //import com.practicesoftwaretesting.client.ApiException;
+//import com.practicesoftwaretesting.client.Configuration;
+//import com.practicesoftwaretesting.client.auth.*;
 //import com.practicesoftwaretesting.client.api.BrandApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 
 BrandApi apiInstance = new BrandApi();
@@ -46,7 +53,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[apiAuth](../README.md#apiAuth)
 
 ### HTTP request headers
 

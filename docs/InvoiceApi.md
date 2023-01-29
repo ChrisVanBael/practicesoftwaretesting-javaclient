@@ -1,6 +1,6 @@
 # InvoiceApi
 
-All URIs are relative to *https://api-v4.practicesoftwaretesting.com*
+All URIs are relative to *https://api.practicesoftwaretesting.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -17,6 +17,8 @@ Method | HTTP request | Description
 > deleteInvoice(invoiceId)
 
 Delete specific invoice
+
+Admin role is required to delete a specific invoice
 
 ### Example
 ```java
@@ -115,7 +117,7 @@ Name | Type | Description  | Notes
 
 Retrieve all invoices
 
-&#x60;user&#x60; retrieves only related invoices
+&#x60;admin&#x60; retrieves all invoices, &#x60;user&#x60; retrieves only related invoices
 
 ### Example
 ```java

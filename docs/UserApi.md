@@ -1,6 +1,6 @@
 # UserApi
 
-All URIs are relative to *https://api-v4.practicesoftwaretesting.com*
+All URIs are relative to *https://api.practicesoftwaretesting.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -72,6 +72,8 @@ Name | Type | Description  | Notes
 > deleteUser(userId)
 
 Delete specific user
+
+Admin role is required to delete a specific user
 
 ### Example
 ```java

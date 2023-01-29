@@ -1,6 +1,6 @@
 # ProductApi
 
-All URIs are relative to *https://api-v4.practicesoftwaretesting.com*
+All URIs are relative to *https://api.practicesoftwaretesting.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -18,11 +18,18 @@ Method | HTTP request | Description
 
 Delete specific product
 
+Admin role is required to delete a specific product
+
 ### Example
 ```java
 // Import classes:
+//import com.practicesoftwaretesting.client.ApiClient;
 //import com.practicesoftwaretesting.client.ApiException;
+//import com.practicesoftwaretesting.client.Configuration;
+//import com.practicesoftwaretesting.client.auth.*;
 //import com.practicesoftwaretesting.client.api.ProductApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 
 ProductApi apiInstance = new ProductApi();
@@ -47,7 +54,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[apiAuth](../README.md#apiAuth)
 
 ### HTTP request headers
 
@@ -101,7 +108,7 @@ No authorization required
 
 <a name="getProducts"></a>
 # **getProducts**
-> InlineResponse2005 getProducts(byBrand, byCategory, isRental)
+> InlineResponse2005 getProducts(byBrand, byCategory, isRental, between, sort)
 
 Retrieve all products
 
@@ -118,8 +125,10 @@ ProductApi apiInstance = new ProductApi();
 Integer byBrand = 56; // Integer | Id of brand
 Integer byCategory = 56; // Integer | Id of category
 String isRental = "isRental_example"; // String | Indication if we like to retrieve rentals products
+String between = "between_example"; // String | Can be used to define a price range, like: price,10,30
+String sort = "sort_example"; // String | Can be used to sort based on specific column value, like: name,asc OR name,desc OR price,asc OR price,desc
 try {
-    InlineResponse2005 result = apiInstance.getProducts(byBrand, byCategory, isRental);
+    InlineResponse2005 result = apiInstance.getProducts(byBrand, byCategory, isRental, between, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductApi#getProducts");
@@ -134,6 +143,8 @@ Name | Type | Description  | Notes
  **byBrand** | **Integer**| Id of brand | [optional]
  **byCategory** | **Integer**| Id of category | [optional]
  **isRental** | **String**| Indication if we like to retrieve rentals products | [optional]
+ **between** | **String**| Can be used to define a price range, like: price,10,30 | [optional]
+ **sort** | **String**| Can be used to sort based on specific column value, like: name,asc OR name,desc OR price,asc OR price,desc | [optional]
 
 ### Return type
 

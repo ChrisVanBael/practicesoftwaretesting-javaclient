@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **name** | **String** |  |  [optional]
 **description** | **String** |  |  [optional]
 **price** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
+**isLocationOffer** | **Boolean** |  |  [optional]
 **isRental** | **Boolean** |  |  [optional]
 **brand** | [**BrandResponse**](BrandResponse.md) |  |  [optional]
 **category** | [**CategoryResponse**](CategoryResponse.md) |  |  [optional]

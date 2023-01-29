@@ -1,6 +1,6 @@
 # FavoriteApi
 
-All URIs are relative to *https://api-v4.practicesoftwaretesting.com*
+All URIs are relative to *https://api.practicesoftwaretesting.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -176,7 +176,7 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 
 FavoriteApi apiInstance = new FavoriteApi();
-FavoriteRequest body = new FavoriteRequest(); // FavoriteRequest | Favorite request object
+FavoriteRequest body = new FavoriteRequest(); // FavoriteRequest | Brand request object
 try {
     FavoriteResponse result = apiInstance.storeFavorite(body);
     System.out.println(result);
@@ -190,7 +190,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**FavoriteRequest**](FavoriteRequest.md)| Favorite request object |
+ **body** | [**FavoriteRequest**](FavoriteRequest.md)| Brand request object |
 
 ### Return type
 
@@ -226,7 +226,7 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 
 FavoriteApi apiInstance = new FavoriteApi();
-FavoriteRequest body = new FavoriteRequest(); // FavoriteRequest | Favorite request object
+FavoriteRequest body = new FavoriteRequest(); // FavoriteRequest | Brand request object
 Integer favoriteId = 56; // Integer | The favoriteId parameter in path
 try {
     InlineResponse200 result = apiInstance.updateFavorite(body, favoriteId);
@@ -241,7 +241,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**FavoriteRequest**](FavoriteRequest.md)| Favorite request object |
+ **body** | [**FavoriteRequest**](FavoriteRequest.md)| Brand request object |
  **favoriteId** | **Integer**| The favoriteId parameter in path |
 
 ### Return type
