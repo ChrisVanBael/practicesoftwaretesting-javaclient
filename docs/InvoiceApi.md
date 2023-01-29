@@ -1,6 +1,6 @@
 # InvoiceApi
 
-All URIs are relative to *https://api-v3.practicesoftwaretesting.com*
+All URIs are relative to *https://api-v4.practicesoftwaretesting.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -21,8 +21,13 @@ Delete specific invoice
 ### Example
 ```java
 // Import classes:
+//import com.practicesoftwaretesting.client.ApiClient;
 //import com.practicesoftwaretesting.client.ApiException;
+//import com.practicesoftwaretesting.client.Configuration;
+//import com.practicesoftwaretesting.client.auth.*;
 //import com.practicesoftwaretesting.client.api.InvoiceApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 
 InvoiceApi apiInstance = new InvoiceApi();
@@ -47,7 +52,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[apiAuth](../README.md#apiAuth)
 
 ### HTTP request headers
 
@@ -65,8 +70,13 @@ Retrieve specific invoice
 ### Example
 ```java
 // Import classes:
+//import com.practicesoftwaretesting.client.ApiClient;
 //import com.practicesoftwaretesting.client.ApiException;
+//import com.practicesoftwaretesting.client.Configuration;
+//import com.practicesoftwaretesting.client.auth.*;
 //import com.practicesoftwaretesting.client.api.InvoiceApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 
 InvoiceApi apiInstance = new InvoiceApi();
@@ -92,7 +102,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiAuth](../README.md#apiAuth)
 
 ### HTTP request headers
 
@@ -101,7 +111,7 @@ No authorization required
 
 <a name="getInvoices"></a>
 # **getInvoices**
-> InlineResponse2001 getInvoices()
+> InlineResponse2003 getInvoices()
 
 Retrieve all invoices
 
@@ -110,13 +120,18 @@ Retrieve all invoices
 ### Example
 ```java
 // Import classes:
+//import com.practicesoftwaretesting.client.ApiClient;
 //import com.practicesoftwaretesting.client.ApiException;
+//import com.practicesoftwaretesting.client.Configuration;
+//import com.practicesoftwaretesting.client.auth.*;
 //import com.practicesoftwaretesting.client.api.InvoiceApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 
 InvoiceApi apiInstance = new InvoiceApi();
 try {
-    InlineResponse2001 result = apiInstance.getInvoices();
+    InlineResponse2003 result = apiInstance.getInvoices();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling InvoiceApi#getInvoices");
@@ -129,11 +144,11 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
-No authorization required
+[apiAuth](../README.md#apiAuth)
 
 ### HTTP request headers
 
@@ -142,7 +157,7 @@ No authorization required
 
 <a name="searchInvoice"></a>
 # **searchInvoice**
-> InlineResponse2001 searchInvoice(q)
+> InlineResponse2003 searchInvoice(q)
 
 Retrieve specific invoices matching the search query
 
@@ -158,7 +173,7 @@ Search is performed on the &#x60;invoice_number&#x60;, &#x60;billing_address&#x6
 InvoiceApi apiInstance = new InvoiceApi();
 String q = "q_example"; // String | A query phrase
 try {
-    InlineResponse2001 result = apiInstance.searchInvoice(q);
+    InlineResponse2003 result = apiInstance.searchInvoice(q);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling InvoiceApi#searchInvoice");
@@ -174,7 +189,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
@@ -196,8 +211,13 @@ Store new invoice
 ### Example
 ```java
 // Import classes:
+//import com.practicesoftwaretesting.client.ApiClient;
 //import com.practicesoftwaretesting.client.ApiException;
+//import com.practicesoftwaretesting.client.Configuration;
+//import com.practicesoftwaretesting.client.auth.*;
 //import com.practicesoftwaretesting.client.api.InvoiceApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 
 InvoiceApi apiInstance = new InvoiceApi();
@@ -223,7 +243,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiAuth](../README.md#apiAuth)
 
 ### HTTP request headers
 
@@ -241,8 +261,13 @@ Update specific invoice
 ### Example
 ```java
 // Import classes:
+//import com.practicesoftwaretesting.client.ApiClient;
 //import com.practicesoftwaretesting.client.ApiException;
+//import com.practicesoftwaretesting.client.Configuration;
+//import com.practicesoftwaretesting.client.auth.*;
 //import com.practicesoftwaretesting.client.api.InvoiceApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 
 InvoiceApi apiInstance = new InvoiceApi();
@@ -270,7 +295,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiAuth](../README.md#apiAuth)
 
 ### HTTP request headers
 
@@ -288,8 +313,13 @@ Update invoice status
 ### Example
 ```java
 // Import classes:
+//import com.practicesoftwaretesting.client.ApiClient;
 //import com.practicesoftwaretesting.client.ApiException;
+//import com.practicesoftwaretesting.client.Configuration;
+//import com.practicesoftwaretesting.client.auth.*;
 //import com.practicesoftwaretesting.client.api.InvoiceApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 
 InvoiceApi apiInstance = new InvoiceApi();
@@ -317,7 +347,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiAuth](../README.md#apiAuth)
 
 ### HTTP request headers
 

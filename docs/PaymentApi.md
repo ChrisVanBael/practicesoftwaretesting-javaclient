@@ -1,6 +1,6 @@
 # PaymentApi
 
-All URIs are relative to *https://api-v3.practicesoftwaretesting.com*
+All URIs are relative to *https://api-v4.practicesoftwaretesting.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 <a name="checkPayment"></a>
 # **checkPayment**
-> InlineResponse2002 checkPayment()
+> InlineResponse2004 checkPayment()
 
 Check payment
 
@@ -23,7 +23,7 @@ Check payment
 
 PaymentApi apiInstance = new PaymentApi();
 try {
-    InlineResponse2002 result = apiInstance.checkPayment();
+    InlineResponse2004 result = apiInstance.checkPayment();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PaymentApi#checkPayment");
@@ -36,7 +36,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 

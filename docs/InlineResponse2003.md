@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **currentPage** | **Integer** |  |  [optional]
-**data** | [**List&lt;ProductResponse&gt;**](ProductResponse.md) |  |  [optional]
+**data** | [**List&lt;InvoiceResponse&gt;**](InvoiceResponse.md) |  |  [optional]
 **nextPageUrl** | **Integer** |  |  [optional]
 **path** | **Integer** |  |  [optional]
 **perPage** | **Integer** |  |  [optional]

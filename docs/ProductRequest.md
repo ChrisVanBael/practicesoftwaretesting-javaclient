@@ -9,5 +9,4 @@ Name | Type | Description | Notes
 **categoryId** | **Integer** |  |  [optional]
 **brandId** | **Integer** |  |  [optional]
 **productImageId** | **Integer** |  |  [optional]
-**isLocationOffer** | **Boolean** |  |  [optional]
 **isRental** | **Boolean** |  |  [optional]

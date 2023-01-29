@@ -1,6 +1,6 @@
 # ProductApi
 
-All URIs are relative to *https://api-v3.practicesoftwaretesting.com*
+All URIs are relative to *https://api-v4.practicesoftwaretesting.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -101,7 +101,7 @@ No authorization required
 
 <a name="getProducts"></a>
 # **getProducts**
-> InlineResponse2003 getProducts(byBrand, byCategory, isRental)
+> InlineResponse2005 getProducts(byBrand, byCategory, isRental)
 
 Retrieve all products
 
@@ -119,7 +119,7 @@ Integer byBrand = 56; // Integer | Id of brand
 Integer byCategory = 56; // Integer | Id of category
 String isRental = "isRental_example"; // String | Indication if we like to retrieve rentals products
 try {
-    InlineResponse2003 result = apiInstance.getProducts(byBrand, byCategory, isRental);
+    InlineResponse2005 result = apiInstance.getProducts(byBrand, byCategory, isRental);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductApi#getProducts");
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -195,7 +195,7 @@ No authorization required
 
 <a name="searchProduct"></a>
 # **searchProduct**
-> InlineResponse2003 searchProduct(q)
+> InlineResponse2005 searchProduct(q)
 
 Retrieve specific products matching the search query
 
@@ -211,7 +211,7 @@ Search is performed on the &#x60;name&#x60; column
 ProductApi apiInstance = new ProductApi();
 String q = "q_example"; // String | A query phrase
 try {
-    InlineResponse2003 result = apiInstance.searchProduct(q);
+    InlineResponse2005 result = apiInstance.searchProduct(q);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductApi#searchProduct");
@@ -227,7 +227,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
