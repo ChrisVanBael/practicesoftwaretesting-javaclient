@@ -251,11 +251,11 @@ public class ProductApi {
      * Retrieve specific product
      * Retrieve specific product
      * @param productId The productId parameter in path (required)
-     * @return BrandResponse
+     * @return ProductResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public BrandResponse getProduct(Integer productId) throws ApiException {
-        ApiResponse<BrandResponse> resp = getProductWithHttpInfo(productId);
+    public ProductResponse getProduct(Integer productId) throws ApiException {
+        ApiResponse<ProductResponse> resp = getProductWithHttpInfo(productId);
         return resp.getData();
     }
 
@@ -266,9 +266,9 @@ public class ProductApi {
      * @return ApiResponse&lt;BrandResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<BrandResponse> getProductWithHttpInfo(Integer productId) throws ApiException {
+    public ApiResponse<ProductResponse> getProductWithHttpInfo(Integer productId) throws ApiException {
         com.squareup.okhttp.Call call = getProductValidateBeforeCall(productId, null, null);
-        Type localVarReturnType = new TypeToken<BrandResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProductResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
