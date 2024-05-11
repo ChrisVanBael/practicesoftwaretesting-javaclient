@@ -14,8 +14,8 @@ package com.practicesoftwaretesting.client.auth;
 
 import com.practicesoftwaretesting.client.Pair;
 
-import java.util.Map;
 import java.util.List;
+import java.util.Map;
 
 @javax.annotation.Generated(value = "com.tesuqa.codegen.v3.generators.java.JavaClientCodegen", date = "2023-01-29T11:12:54.585Z[GMT]")public class ApiKeyAuth implements Authentication {
   private final String location;

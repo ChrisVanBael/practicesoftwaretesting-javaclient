@@ -13,16 +13,11 @@
 package com.practicesoftwaretesting.client.api;
 
 import com.practicesoftwaretesting.client.model.ImageResponse;
-import com.practicesoftwaretesting.client.model.InlineResponse404;
-import com.practicesoftwaretesting.client.model.InlineResponse405;
 import org.junit.Test;
 import org.junit.Ignore;
 
-
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 
 /**
@@ -34,8 +29,6 @@ public class ImageApiTest {
     private final ImageApi api = new ImageApi();
 
     /**
-     * Retrieve all images
-     *
      * Retrieve all images
      *
      * @throws Exception

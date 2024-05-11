@@ -12,6 +12,10 @@
 
 package com.practicesoftwaretesting.client;
 
+import com.practicesoftwaretesting.client.auth.ApiKeyAuth;
+import com.practicesoftwaretesting.client.auth.Authentication;
+import com.practicesoftwaretesting.client.auth.HttpBasicAuth;
+import com.practicesoftwaretesting.client.auth.OAuth;
 import com.squareup.okhttp.*;
 import com.squareup.okhttp.internal.http.HttpMethod;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor;
@@ -27,11 +31,11 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.lang.reflect.Type;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.security.GeneralSecurityException;
 import java.security.KeyStore;
 import java.security.SecureRandom;
@@ -45,11 +49,6 @@ import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import com.practicesoftwaretesting.client.auth.Authentication;
-import com.practicesoftwaretesting.client.auth.HttpBasicAuth;
-import com.practicesoftwaretesting.client.auth.ApiKeyAuth;
-import com.practicesoftwaretesting.client.auth.OAuth;
 
 public class ApiClient {
 

@@ -14,8 +14,8 @@ package com.practicesoftwaretesting.client.auth;
 
 import com.practicesoftwaretesting.client.Pair;
 
-import java.util.Map;
 import java.util.List;
+import java.util.Map;
 
 public interface Authentication {
     /**

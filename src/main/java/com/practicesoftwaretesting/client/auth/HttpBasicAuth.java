@@ -13,13 +13,10 @@
 package com.practicesoftwaretesting.client.auth;
 
 import com.practicesoftwaretesting.client.Pair;
-
 import com.squareup.okhttp.Credentials;
 
-import java.util.Map;
 import java.util.List;
-
-import java.io.UnsupportedEncodingException;
+import java.util.Map;
 
 public class HttpBasicAuth implements Authentication {
     private String username;

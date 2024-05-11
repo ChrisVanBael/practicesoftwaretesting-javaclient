@@ -12,27 +12,13 @@
 
 package com.practicesoftwaretesting.client.api;
 
-import com.practicesoftwaretesting.client.ApiCallback;
-import com.practicesoftwaretesting.client.ApiClient;
-import com.practicesoftwaretesting.client.ApiException;
-import com.practicesoftwaretesting.client.ApiResponse;
-import com.practicesoftwaretesting.client.Configuration;
-import com.practicesoftwaretesting.client.Pair;
-import com.practicesoftwaretesting.client.ProgressRequestBody;
-import com.practicesoftwaretesting.client.ProgressResponseBody;
-
 import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-
-
+import com.practicesoftwaretesting.client.*;
 import com.practicesoftwaretesting.client.model.BrandRequest;
 import com.practicesoftwaretesting.client.model.BrandResponse;
 import com.practicesoftwaretesting.client.model.InlineResponse200;
-import com.practicesoftwaretesting.client.model.InlineResponse404;
-import com.practicesoftwaretesting.client.model.InlineResponse4041;
-import com.practicesoftwaretesting.client.model.InlineResponse405;
 
+import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -15,17 +15,10 @@ package com.practicesoftwaretesting.client.api;
 import com.practicesoftwaretesting.client.model.CategoryRequest;
 import com.practicesoftwaretesting.client.model.CategoryResponse;
 import com.practicesoftwaretesting.client.model.InlineResponse200;
-import com.practicesoftwaretesting.client.model.InlineResponse404;
-import com.practicesoftwaretesting.client.model.InlineResponse4041;
-import com.practicesoftwaretesting.client.model.InlineResponse405;
 import org.junit.Test;
 import org.junit.Ignore;
 
-
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
 /**

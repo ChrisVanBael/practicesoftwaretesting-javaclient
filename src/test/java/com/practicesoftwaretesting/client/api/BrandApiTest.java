@@ -15,17 +15,10 @@ package com.practicesoftwaretesting.client.api;
 import com.practicesoftwaretesting.client.model.BrandRequest;
 import com.practicesoftwaretesting.client.model.BrandResponse;
 import com.practicesoftwaretesting.client.model.InlineResponse200;
-import com.practicesoftwaretesting.client.model.InlineResponse404;
-import com.practicesoftwaretesting.client.model.InlineResponse4041;
-import com.practicesoftwaretesting.client.model.InlineResponse405;
 import org.junit.Test;
 import org.junit.Ignore;
 
-
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
 /**
@@ -39,8 +32,6 @@ public class BrandApiTest {
     /**
      * Delete specific brand
      *
-     * 
-     *
      * @throws Exception
      *          if the Api call fails
      */
@@ -52,8 +43,6 @@ public class BrandApiTest {
         // TODO: test validations
     }
     /**
-     * Retrieve specific brand
-     *
      * Retrieve specific brand
      *
      * @throws Exception
@@ -69,8 +58,6 @@ public class BrandApiTest {
     /**
      * Retrieve all brands
      *
-     * Retrieve all brands
-     *
      * @throws Exception
      *          if the Api call fails
      */
@@ -81,8 +68,6 @@ public class BrandApiTest {
         // TODO: test validations
     }
     /**
-     * Store new brand
-     *
      * Store new brand
      *
      * @throws Exception
@@ -96,8 +81,6 @@ public class BrandApiTest {
         // TODO: test validations
     }
     /**
-     * Update specific brand
-     *
      * Update specific brand
      *
      * @throws Exception

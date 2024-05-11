@@ -12,22 +12,15 @@
 
 package com.practicesoftwaretesting.client.api;
 
-import com.practicesoftwaretesting.client.model.BrandResponse;
 import com.practicesoftwaretesting.client.model.InlineResponse200;
 import com.practicesoftwaretesting.client.model.InlineResponse201;
-import com.practicesoftwaretesting.client.model.InlineResponse404;
-import com.practicesoftwaretesting.client.model.InlineResponse4041;
-import com.practicesoftwaretesting.client.model.InlineResponse405;
 import com.practicesoftwaretesting.client.model.ProductRequest;
 import com.practicesoftwaretesting.client.model.ProductResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
 /**
@@ -56,8 +49,6 @@ public class ProductApiTest {
     /**
      * Retrieve specific product
      *
-     * Retrieve specific product
-     *
      * @throws Exception
      *          if the Api call fails
      */
@@ -69,8 +60,6 @@ public class ProductApiTest {
         // TODO: test validations
     }
     /**
-     * Retrieve all products
-     *
      * Retrieve all products
      *
      * @throws Exception
@@ -88,8 +77,6 @@ public class ProductApiTest {
     /**
      * Retrieve related products
      *
-     * Retrieve related products
-     *
      * @throws Exception
      *          if the Api call fails
      */
@@ -103,8 +90,6 @@ public class ProductApiTest {
     /**
      * Store new product
      *
-     * Store new product
-     *
      * @throws Exception
      *          if the Api call fails
      */
@@ -116,8 +101,6 @@ public class ProductApiTest {
         // TODO: test validations
     }
     /**
-     * Update specific product
-     *
      * Update specific product
      *
      * @throws Exception
