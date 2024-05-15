@@ -141,6 +141,28 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>net.nicoulaj.maven.plugins</groupId>
+        <artifactId>checksum-maven-plugin</artifactId>
+        <version>1.11</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>artifacts</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <csvSummary>true</csvSummary>
+          <csvSummaryFile>artifacts-checksums.csv</csvSummaryFile>
+          <xmlSummary>true</xmlSummary>
+          <xmlSummaryFile>artifacts-checksums.xml</xmlSummaryFile>
+          <algorithms>
+            <algorithm>MD5</algorithm>
+            <algorithm>SHA-1</algorithm>
+          </algorithms>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 
@@ -210,6 +232,11 @@
       <artifactId>junit</artifactId>
       <version>${junit-version}</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>net.nicoulaj.maven.plugins</groupId>
+      <artifactId>checksum-maven-plugin</artifactId>
+      <version>1.11</version>
     </dependency>
   </dependencies>
   <properties>
