@@ -54,7 +54,6 @@
       </plugin>
       <plugin>
         <artifactId>maven-dependency-plugin</artifactId>
-        <version>3.6.0</version>
         <executions>
           <execution>
             <phase>package</phase>
@@ -142,6 +141,29 @@
           </execution>
         </executions>
       </plugin>
+
+      <plugin>
+        <groupId>net.nicoulaj.maven.plugins</groupId>
+        <artifactId>checksum-maven-plugin</artifactId>
+        <version>1.11</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>artifacts</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <csvSummary>true</csvSummary>
+          <csvSummaryFile>artifacts-checksums.csv</csvSummaryFile>
+          <xmlSummary>true</xmlSummary>
+          <xmlSummaryFile>artifacts-checksums.xml</xmlSummaryFile>
+          <algorithms>
+            <algorithm>MD5</algorithm>
+            <algorithm>SHA-1</algorithm>
+          </algorithms>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 
@@ -212,6 +234,11 @@
       <version>${junit-version}</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>net.nicoulaj.maven.plugins</groupId>
+      <artifactId>checksum-maven-plugin</artifactId>
+      <version>1.11</version>
+    </dependency>
   </dependencies>
   <properties>
     <java.version>1.7</java.version>
@@ -219,7 +246,7 @@
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <swagger-core-version>2.0.0</swagger-core-version>
     <okhttp-version>2.7.5</okhttp-version>
-    <gson-version>2.8.9</gson-version>
+    <gson-version>2.8.1</gson-version>
     <gson-fire-version>1.8.3</gson-fire-version>
     <threetenbp-version>1.3.5</threetenbp-version>
     <maven-plugin-version>1.0.0</maven-plugin-version>
