@@ -8,7 +8,6 @@ Method | HTTP request | Description
 [**getFavorite**](FavoriteApi.md#getFavorite) | **GET** /favorites/{favoriteId} | Retrieve specific favorite
 [**getFavorites**](FavoriteApi.md#getFavorites) | **GET** /favorites | Retrieve all favorites
 [**storeFavorite**](FavoriteApi.md#storeFavorite) | **POST** /favorites | Store new favorite
-[**updateFavorite**](FavoriteApi.md#updateFavorite) | **PUT** /favorites/{favoriteId} | Update specific favorite
 
 <a name="deleteFavorite"></a>
 # **deleteFavorite**
@@ -195,58 +194,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**FavoriteResponse**](FavoriteResponse.md)
-
-### Authorization
-
-[apiAuth](../README.md#apiAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="updateFavorite"></a>
-# **updateFavorite**
-> InlineResponse200 updateFavorite(body, favoriteId)
-
-Update specific favorite
-
-User role is required to update specific favorite
-
-### Example
-```java
-// Import classes:
-//import com.practicesoftwaretesting.client.ApiClient;
-//import com.practicesoftwaretesting.client.ApiException;
-//import com.practicesoftwaretesting.client.Configuration;
-//import com.practicesoftwaretesting.client.auth.*;
-//import com.practicesoftwaretesting.client.api.FavoriteApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-
-FavoriteApi apiInstance = new FavoriteApi();
-FavoriteRequest body = new FavoriteRequest(); // FavoriteRequest | Favorite request object
-Integer favoriteId = 56; // Integer | The favoriteId parameter in path
-try {
-    InlineResponse200 result = apiInstance.updateFavorite(body, favoriteId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling FavoriteApi#updateFavorite");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**FavoriteRequest**](FavoriteRequest.md)| Favorite request object |
- **favoriteId** | **Integer**| The favoriteId parameter in path |
-
-### Return type
-
-[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 

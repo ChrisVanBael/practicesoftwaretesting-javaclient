@@ -18,6 +18,8 @@ Method | HTTP request | Description
 
 Delete specific invoice
 
+Delete a specific invoice
+
 ### Example
 ```java
 // Import classes:
@@ -111,7 +113,7 @@ Name | Type | Description  | Notes
 
 <a name="getInvoices"></a>
 # **getInvoices**
-> InlineResponse2003 getInvoices()
+> InlineResponse2002 getInvoices(page)
 
 Retrieve all invoices
 
@@ -130,8 +132,9 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 
 InvoiceApi apiInstance = new InvoiceApi();
+Integer page = 56; // Integer | pagenumber
 try {
-    InlineResponse2003 result = apiInstance.getInvoices();
+    InlineResponse2002 result = apiInstance.getInvoices(page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling InvoiceApi#getInvoices");
@@ -140,11 +143,14 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **Integer**| pagenumber | [optional]
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -157,7 +163,7 @@ This endpoint does not need any parameter.
 
 <a name="searchInvoice"></a>
 # **searchInvoice**
-> InlineResponse2003 searchInvoice(q)
+> InlineResponse2002 searchInvoice(q, page)
 
 Retrieve specific invoices matching the search query
 
@@ -172,8 +178,9 @@ Search is performed on the &#x60;invoice_number&#x60;, &#x60;billing_address&#x6
 
 InvoiceApi apiInstance = new InvoiceApi();
 String q = "q_example"; // String | A query phrase
+Integer page = 56; // Integer | pagenumber
 try {
-    InlineResponse2003 result = apiInstance.searchInvoice(q);
+    InlineResponse2002 result = apiInstance.searchInvoice(q, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling InvoiceApi#searchInvoice");
@@ -186,10 +193,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **q** | **String**| A query phrase |
+ **page** | **Integer**| pagenumber | [optional]
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 

@@ -17,6 +17,8 @@ Method | HTTP request | Description
 
 Delete specific brand
 
+Delete a specific brand
+
 ### Example
 ```java
 // Import classes:

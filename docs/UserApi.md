@@ -73,6 +73,8 @@ Name | Type | Description  | Notes
 
 Delete specific user
 
+Delete a specific user
+
 ### Example
 ```java
 // Import classes:
@@ -255,7 +257,7 @@ Name | Type | Description  | Notes
 
 <a name="getUsers"></a>
 # **getUsers**
-> List&lt;UserResponse&gt; getUsers()
+> List&lt;UserResponse&gt; getUsers(page)
 
 Retrieve all users
 
@@ -274,8 +276,9 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 
 UserApi apiInstance = new UserApi();
+Integer page = 56; // Integer | pagenumber
 try {
-    List<UserResponse> result = apiInstance.getUsers();
+    List<UserResponse> result = apiInstance.getUsers(page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UserApi#getUsers");
@@ -284,7 +287,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **Integer**| pagenumber | [optional]
 
 ### Return type
 
@@ -301,7 +307,7 @@ This endpoint does not need any parameter.
 
 <a name="logOut"></a>
 # **logOut**
-> InlineResponse2007 logOut()
+> InlineResponse2006 logOut()
 
 Logout - invalidate the token
 
@@ -321,7 +327,7 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 UserApi apiInstance = new UserApi();
 try {
-    InlineResponse2007 result = apiInstance.logOut();
+    InlineResponse2006 result = apiInstance.logOut();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UserApi#logOut");
@@ -334,7 +340,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
 
@@ -347,7 +353,7 @@ This endpoint does not need any parameter.
 
 <a name="loginCustomer"></a>
 # **loginCustomer**
-> InlineResponse2006 loginCustomer(body)
+> InlineResponse2005 loginCustomer(body)
 
 Login customer
 
@@ -361,7 +367,7 @@ Login customer
 UserApi apiInstance = new UserApi();
 UsersLoginBody body = new UsersLoginBody(); // UsersLoginBody | 
 try {
-    InlineResponse2006 result = apiInstance.loginCustomer(body);
+    InlineResponse2005 result = apiInstance.loginCustomer(body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UserApi#loginCustomer");
@@ -377,7 +383,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -390,7 +396,7 @@ No authorization required
 
 <a name="refreshToken"></a>
 # **refreshToken**
-> InlineResponse2006 refreshToken()
+> InlineResponse2005 refreshToken()
 
 Retrieve a refreshed token
 
@@ -410,7 +416,7 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 UserApi apiInstance = new UserApi();
 try {
-    InlineResponse2006 result = apiInstance.refreshToken();
+    InlineResponse2005 result = apiInstance.refreshToken();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UserApi#refreshToken");
@@ -423,7 +429,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -436,7 +442,7 @@ This endpoint does not need any parameter.
 
 <a name="searchUser"></a>
 # **searchUser**
-> List&lt;UserResponse&gt; searchUser(q)
+> List&lt;UserResponse&gt; searchUser(q, page)
 
 Retrieve specific users matching the search query
 
@@ -456,8 +462,9 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 UserApi apiInstance = new UserApi();
 String q = "q_example"; // String | A query phrase
+Integer page = 56; // Integer | pagenumber
 try {
-    List<UserResponse> result = apiInstance.searchUser(q);
+    List<UserResponse> result = apiInstance.searchUser(q, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UserApi#searchUser");
@@ -470,6 +477,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **q** | **String**| A query phrase |
+ **page** | **Integer**| pagenumber | [optional]
 
 ### Return type
 

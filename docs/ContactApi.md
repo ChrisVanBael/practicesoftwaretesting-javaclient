@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 <a name="getMessages"></a>
 # **getMessages**
-> InlineResponse2001 getMessages()
+> InlineResponse2001 getMessages(page)
 
 Retrieve messages
 
@@ -81,8 +81,9 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 
 ContactApi apiInstance = new ContactApi();
+Integer page = 56; // Integer | pagenumber
 try {
-    InlineResponse2001 result = apiInstance.getMessages();
+    InlineResponse2001 result = apiInstance.getMessages(page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ContactApi#getMessages");
@@ -91,7 +92,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **Integer**| pagenumber | [optional]
 
 ### Return type
 
@@ -160,7 +164,7 @@ Name | Type | Description  | Notes
 
 <a name="sendMessage"></a>
 # **sendMessage**
-> InlineResponse2002 sendMessage(body)
+> InlineResponse200 sendMessage(body)
 
 Send new contact message
 
@@ -176,7 +180,7 @@ Send new contact message by mail
 ContactApi apiInstance = new ContactApi();
 ContactRequest body = new ContactRequest(); // ContactRequest | Contact request object
 try {
-    InlineResponse2002 result = apiInstance.sendMessage(body);
+    InlineResponse200 result = apiInstance.sendMessage(body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ContactApi#sendMessage");
@@ -192,7 +196,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 
