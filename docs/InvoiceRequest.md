@@ -15,4 +15,4 @@ Name | Type | Description | Notes
 **paymentMethod** | **String** |  |  [optional]
 **paymentAccountName** | **String** |  |  [optional]
 **paymentAccountNumber** | **String** |  |  [optional]
-**invoicelines** | **List&lt;Object&gt;** |  |  [optional]
+**invoiceItems** | **List&lt;Object&gt;** |  |  [optional]

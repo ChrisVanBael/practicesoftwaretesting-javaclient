@@ -101,7 +101,7 @@ No authorization required
 
 <a name="getInvoices"></a>
 # **getInvoices**
-> InlineResponse2001 getInvoices()
+> InlineResponse2001 getInvoices(page)
 
 Retrieve all invoices
 
@@ -115,8 +115,9 @@ Retrieve all invoices
 
 
 InvoiceApi apiInstance = new InvoiceApi();
+Integer page = 56; // Integer | pagenumber
 try {
-    InlineResponse2001 result = apiInstance.getInvoices();
+    InlineResponse2001 result = apiInstance.getInvoices(page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling InvoiceApi#getInvoices");
@@ -125,7 +126,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **Integer**| pagenumber | [optional]
 
 ### Return type
 
@@ -142,7 +146,7 @@ No authorization required
 
 <a name="searchInvoice"></a>
 # **searchInvoice**
-> InlineResponse2001 searchInvoice(q)
+> InlineResponse2001 searchInvoice(q, page)
 
 Retrieve specific invoices matching the search query
 
@@ -157,8 +161,9 @@ Search is performed on the &#x60;invoice_number&#x60;, &#x60;billing_address&#x6
 
 InvoiceApi apiInstance = new InvoiceApi();
 String q = "q_example"; // String | A query phrase
+Integer page = 56; // Integer | pagenumber
 try {
-    InlineResponse2001 result = apiInstance.searchInvoice(q);
+    InlineResponse2001 result = apiInstance.searchInvoice(q, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling InvoiceApi#searchInvoice");
@@ -171,6 +176,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **q** | **String**| A query phrase |
+ **page** | **Integer**| pagenumber | [optional]
 
 ### Return type
 

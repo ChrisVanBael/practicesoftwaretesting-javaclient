@@ -20,4 +20,4 @@ Name | Type | Description | Notes
 **paymentAccountNumber** | **String** |  |  [optional]
 **status** | **String** |  |  [optional]
 **statusMessage** | **String** |  |  [optional]
-**invoicelines** | [**List&lt;InvoiceLineResponse&gt;**](InvoiceLineResponse.md) |  |  [optional]
+**invoiceItems** | [**List&lt;InvoiceLineResponse&gt;**](InvoiceLineResponse.md) |  |  [optional]
