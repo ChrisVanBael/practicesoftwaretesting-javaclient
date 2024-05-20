@@ -88,7 +88,7 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 
 UserApi apiInstance = new UserApi();
-Integer userId = 56; // Integer | The userId parameter in path
+String userId = "userId_example"; // String | The userId parameter in path
 try {
     apiInstance.deleteUser(userId);
 } catch (ApiException e) {
@@ -101,7 +101,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Integer**| The userId parameter in path |
+ **userId** | **String**| The userId parameter in path |
 
 ### Return type
 
@@ -122,7 +122,7 @@ null (empty response body)
 
 Request a new password
 
-Request a new password, it actually sets the password to &#x60;welcome01&#x60;
+Request a new password, it actually sets the password to &#x60;welcome02&#x60;
 
 ### Example
 ```java
@@ -226,7 +226,7 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 
 UserApi apiInstance = new UserApi();
-Integer userId = 56; // Integer | The userId parameter in path
+String userId = "userId_example"; // String | The userId parameter in path
 try {
     UserResponse result = apiInstance.getUser(userId);
     System.out.println(result);
@@ -240,7 +240,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Integer**| The userId parameter in path |
+ **userId** | **String**| The userId parameter in path |
 
 ### Return type
 
@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 
 <a name="getUsers"></a>
 # **getUsers**
-> List&lt;UserResponse&gt; getUsers()
+> List&lt;UserResponse&gt; getUsers(page)
 
 Retrieve all users
 
@@ -276,8 +276,9 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 
 UserApi apiInstance = new UserApi();
+Integer page = 56; // Integer | pagenumber
 try {
-    List<UserResponse> result = apiInstance.getUsers();
+    List<UserResponse> result = apiInstance.getUsers(page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UserApi#getUsers");
@@ -286,7 +287,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **Integer**| pagenumber | [optional]
 
 ### Return type
 
@@ -438,7 +442,7 @@ This endpoint does not need any parameter.
 
 <a name="searchUser"></a>
 # **searchUser**
-> List&lt;UserResponse&gt; searchUser(q)
+> List&lt;UserResponse&gt; searchUser(q, page)
 
 Retrieve specific users matching the search query
 
@@ -458,8 +462,9 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 UserApi apiInstance = new UserApi();
 String q = "q_example"; // String | A query phrase
+Integer page = 56; // Integer | pagenumber
 try {
-    List<UserResponse> result = apiInstance.searchUser(q);
+    List<UserResponse> result = apiInstance.searchUser(q, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UserApi#searchUser");
@@ -472,6 +477,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **q** | **String**| A query phrase |
+ **page** | **Integer**| pagenumber | [optional]
 
 ### Return type
 
@@ -553,7 +559,7 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 UserApi apiInstance = new UserApi();
 UserRequest body = new UserRequest(); // UserRequest | User request object
-Integer userId = 56; // Integer | The userId parameter in path
+String userId = "userId_example"; // String | The userId parameter in path
 try {
     InlineResponse200 result = apiInstance.updateUser(body, userId);
     System.out.println(result);
@@ -568,7 +574,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**UserRequest**](UserRequest.md)| User request object |
- **userId** | **Integer**| The userId parameter in path |
+ **userId** | **String**| The userId parameter in path |
 
 ### Return type
 

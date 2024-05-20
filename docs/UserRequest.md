@@ -12,5 +12,5 @@ Name | Type | Description | Notes
 **postcode** | **String** |  |  [optional]
 **phone** | **String** |  |  [optional]
 **dob** | **String** |  |  [optional]
-**email** | **String** |  |  [optional]
 **password** | **String** |  |  [optional]
+**email** | **String** |  |  [optional]

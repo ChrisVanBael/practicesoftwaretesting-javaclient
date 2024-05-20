@@ -13,4 +13,4 @@ Name | Type | Description | Notes
 **phone** | **String** |  |  [optional]
 **dob** | **String** |  |  [optional]
 **email** | **String** |  |  [optional]
-**id** | **Integer** |  |  [optional]
+**id** | **String** |  |  [optional]

@@ -33,7 +33,7 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 
 ProductApi apiInstance = new ProductApi();
-Integer productId = 56; // Integer | The productId parameter in path
+String productId = "productId_example"; // String | The productId parameter in path
 try {
     apiInstance.deleteProduct(productId);
 } catch (ApiException e) {
@@ -46,7 +46,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **productId** | **Integer**| The productId parameter in path |
+ **productId** | **String**| The productId parameter in path |
 
 ### Return type
 
@@ -77,7 +77,7 @@ Retrieve specific product
 
 
 ProductApi apiInstance = new ProductApi();
-Integer productId = 56; // Integer | The productId parameter in path
+String productId = "productId_example"; // String | The productId parameter in path
 try {
     BrandResponse result = apiInstance.getProduct(productId);
     System.out.println(result);
@@ -91,7 +91,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **productId** | **Integer**| The productId parameter in path |
+ **productId** | **String**| The productId parameter in path |
 
 ### Return type
 
@@ -108,7 +108,7 @@ No authorization required
 
 <a name="getProducts"></a>
 # **getProducts**
-> InlineResponse2005 getProducts(byBrand, byCategory, isRental, between, sort)
+> InlineResponse2005 getProducts(byBrand, byCategory, isRental, between, sort, page)
 
 Retrieve all products
 
@@ -122,13 +122,14 @@ Retrieve all products
 
 
 ProductApi apiInstance = new ProductApi();
-Integer byBrand = 56; // Integer | Id of brand
-Integer byCategory = 56; // Integer | Id of category
+String byBrand = "byBrand_example"; // String | Id of brand
+String byCategory = "byCategory_example"; // String | Id of category
 String isRental = "isRental_example"; // String | Indication if we like to retrieve rentals products
 String between = "between_example"; // String | Can be used to define a price range, like: price,10,30
 String sort = "sort_example"; // String | Can be used to sort based on specific column value, like: name,asc OR name,desc OR price,asc OR price,desc
+Integer page = 56; // Integer | pagenumber
 try {
-    InlineResponse2005 result = apiInstance.getProducts(byBrand, byCategory, isRental, between, sort);
+    InlineResponse2005 result = apiInstance.getProducts(byBrand, byCategory, isRental, between, sort, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductApi#getProducts");
@@ -140,11 +141,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **byBrand** | **Integer**| Id of brand | [optional]
- **byCategory** | **Integer**| Id of category | [optional]
+ **byBrand** | **String**| Id of brand | [optional]
+ **byCategory** | **String**| Id of category | [optional]
  **isRental** | **String**| Indication if we like to retrieve rentals products | [optional]
  **between** | **String**| Can be used to define a price range, like: price,10,30 | [optional]
  **sort** | **String**| Can be used to sort based on specific column value, like: name,asc OR name,desc OR price,asc OR price,desc | [optional]
+ **page** | **Integer**| pagenumber | [optional]
 
 ### Return type
 
@@ -175,7 +177,7 @@ Retrieve related products
 
 
 ProductApi apiInstance = new ProductApi();
-Integer productId = 56; // Integer | The productId parameter in path
+String productId = "productId_example"; // String | The productId parameter in path
 try {
     List<ProductResponse> result = apiInstance.getRelatedProducts(productId);
     System.out.println(result);
@@ -189,7 +191,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **productId** | **Integer**| The productId parameter in path |
+ **productId** | **String**| The productId parameter in path |
 
 ### Return type
 
@@ -206,7 +208,7 @@ No authorization required
 
 <a name="searchProduct"></a>
 # **searchProduct**
-> InlineResponse2005 searchProduct(q)
+> InlineResponse2005 searchProduct(q, page)
 
 Retrieve specific products matching the search query
 
@@ -221,8 +223,9 @@ Search is performed on the &#x60;name&#x60; column
 
 ProductApi apiInstance = new ProductApi();
 String q = "q_example"; // String | A query phrase
+Integer page = 56; // Integer | pagenumber
 try {
-    InlineResponse2005 result = apiInstance.searchProduct(q);
+    InlineResponse2005 result = apiInstance.searchProduct(q, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductApi#searchProduct");
@@ -235,6 +238,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **q** | **String**| A query phrase |
+ **page** | **Integer**| pagenumber | [optional]
 
 ### Return type
 
@@ -251,7 +255,7 @@ No authorization required
 
 <a name="storeProduct"></a>
 # **storeProduct**
-> InlineResponse201 storeProduct(body)
+> InlineResponse2011 storeProduct(body)
 
 Store new product
 
@@ -267,7 +271,7 @@ Store new product
 ProductApi apiInstance = new ProductApi();
 ProductRequest body = new ProductRequest(); // ProductRequest | Product request object
 try {
-    InlineResponse201 result = apiInstance.storeProduct(body);
+    InlineResponse2011 result = apiInstance.storeProduct(body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductApi#storeProduct");
@@ -283,7 +287,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse201**](InlineResponse201.md)
+[**InlineResponse2011**](InlineResponse2011.md)
 
 ### Authorization
 
@@ -311,7 +315,7 @@ Update specific product
 
 ProductApi apiInstance = new ProductApi();
 ProductRequest body = new ProductRequest(); // ProductRequest | Product request object
-Integer productId = 56; // Integer | The productId parameter in path
+String productId = "productId_example"; // String | The productId parameter in path
 try {
     InlineResponse200 result = apiInstance.updateProduct(body, productId);
     System.out.println(result);
@@ -326,7 +330,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**ProductRequest**](ProductRequest.md)| Product request object |
- **productId** | **Integer**| The productId parameter in path |
+ **productId** | **String**| The productId parameter in path |
 
 ### Return type
 

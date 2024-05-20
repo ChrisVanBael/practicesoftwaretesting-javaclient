@@ -3,4 +3,4 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**productId** | **Integer** |  |  [optional]
+**productId** | **String** |  |  [optional]

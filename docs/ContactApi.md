@@ -4,11 +4,59 @@ All URIs are relative to *https://api.practicesoftwaretesting.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**attachFile**](ContactApi.md#attachFile) | **POST** /messages/{messageId}/attach-file | Attach file to contact message
 [**getMessage**](ContactApi.md#getMessage) | **GET** /messages/{messageId} | Retrieve specific message
 [**getMessages**](ContactApi.md#getMessages) | **GET** /messages | Retrieve messages
 [**replyToMessage**](ContactApi.md#replyToMessage) | **POST** /messages/{messageId}/reply | Send new contact message
 [**sendMessage**](ContactApi.md#sendMessage) | **POST** /messages | Send new contact message
 [**updateMessageStatus**](ContactApi.md#updateMessageStatus) | **PUT** /messages/{messageId}/status | Set a new message status
+
+<a name="attachFile"></a>
+# **attachFile**
+> InlineResponse200 attachFile(messageId, file)
+
+Attach file to contact message
+
+Attach file to contact message
+
+### Example
+```java
+// Import classes:
+//import com.practicesoftwaretesting.client.ApiException;
+//import com.practicesoftwaretesting.client.api.ContactApi;
+
+
+ContactApi apiInstance = new ContactApi();
+String messageId = "messageId_example"; // String | The messageId parameter in path
+File file = new File("file_example"); // File | 
+try {
+    InlineResponse200 result = apiInstance.attachFile(messageId, file);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ContactApi#attachFile");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **messageId** | **String**| The messageId parameter in path |
+ **file** | **File**|  | [optional]
+
+### Return type
+
+[**InlineResponse200**](InlineResponse200.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
 
 <a name="getMessage"></a>
 # **getMessage**
@@ -31,7 +79,7 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 
 ContactApi apiInstance = new ContactApi();
-Integer messageId = 56; // Integer | The messageId parameter in path
+String messageId = "messageId_example"; // String | The messageId parameter in path
 try {
     ContactResponse result = apiInstance.getMessage(messageId);
     System.out.println(result);
@@ -45,7 +93,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **messageId** | **Integer**| The messageId parameter in path |
+ **messageId** | **String**| The messageId parameter in path |
 
 ### Return type
 
@@ -62,7 +110,7 @@ Name | Type | Description  | Notes
 
 <a name="getMessages"></a>
 # **getMessages**
-> InlineResponse2001 getMessages()
+> InlineResponse2002 getMessages(page)
 
 Retrieve messages
 
@@ -81,8 +129,9 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 
 ContactApi apiInstance = new ContactApi();
+Integer page = 56; // Integer | pagenumber
 try {
-    InlineResponse2001 result = apiInstance.getMessages();
+    InlineResponse2002 result = apiInstance.getMessages(page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ContactApi#getMessages");
@@ -91,11 +140,14 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **Integer**| pagenumber | [optional]
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -128,7 +180,7 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 ContactApi apiInstance = new ContactApi();
 ContactRequest body = new ContactRequest(); // ContactRequest | Contact request object
-Integer messageId = 56; // Integer | The messageId parameter in path
+String messageId = "messageId_example"; // String | The messageId parameter in path
 try {
     ContactReplyResponse result = apiInstance.replyToMessage(body, messageId);
     System.out.println(result);
@@ -143,7 +195,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**ContactRequest**](ContactRequest.md)| Contact request object |
- **messageId** | **Integer**| The messageId parameter in path |
+ **messageId** | **String**| The messageId parameter in path |
 
 ### Return type
 
@@ -160,7 +212,7 @@ Name | Type | Description  | Notes
 
 <a name="sendMessage"></a>
 # **sendMessage**
-> InlineResponse2002 sendMessage(body)
+> InlineResponse200 sendMessage(body)
 
 Send new contact message
 
@@ -176,7 +228,7 @@ Send new contact message by mail
 ContactApi apiInstance = new ContactApi();
 ContactRequest body = new ContactRequest(); // ContactRequest | Contact request object
 try {
-    InlineResponse2002 result = apiInstance.sendMessage(body);
+    InlineResponse200 result = apiInstance.sendMessage(body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ContactApi#sendMessage");
@@ -192,7 +244,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 
@@ -224,7 +276,7 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 
 ContactApi apiInstance = new ContactApi();
-Integer messageId = 56; // Integer | The messageId parameter in path
+String messageId = "messageId_example"; // String | The messageId parameter in path
 MessageIdStatusBody body = new MessageIdStatusBody(); // MessageIdStatusBody | 
 try {
     InlineResponse200 result = apiInstance.updateMessageStatus(messageId, body);
@@ -239,7 +291,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **messageId** | **Integer**| The messageId parameter in path |
+ **messageId** | **String**| The messageId parameter in path |
  **body** | [**MessageIdStatusBody**](MessageIdStatusBody.md)|  | [optional]
 
 ### Return type

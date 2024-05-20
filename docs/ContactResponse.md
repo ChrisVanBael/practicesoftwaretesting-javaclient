@@ -8,5 +8,5 @@ Name | Type | Description | Notes
 **subject** | **String** |  |  [optional]
 **message** | **String** |  |  [optional]
 **status** | **String** |  |  [optional]
-**id** | **Integer** |  |  [optional]
+**id** | **String** |  |  [optional]
 **createdAt** | **String** |  |  [optional]

@@ -32,7 +32,7 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 
 BrandApi apiInstance = new BrandApi();
-Integer brandId = 56; // Integer | The brandId parameter in path
+String brandId = "brandId_example"; // String | The brandId parameter in path
 try {
     apiInstance.deleteBrand(brandId);
 } catch (ApiException e) {
@@ -45,7 +45,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **brandId** | **Integer**| The brandId parameter in path |
+ **brandId** | **String**| The brandId parameter in path |
 
 ### Return type
 
@@ -76,7 +76,7 @@ Retrieve specific brand
 
 
 BrandApi apiInstance = new BrandApi();
-Integer brandId = 56; // Integer | The brandId parameter in path
+String brandId = "brandId_example"; // String | The brandId parameter in path
 try {
     BrandResponse result = apiInstance.getBrand(brandId);
     System.out.println(result);
@@ -90,7 +90,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **brandId** | **Integer**| The brandId parameter in path |
+ **brandId** | **String**| The brandId parameter in path |
 
 ### Return type
 
@@ -253,7 +253,7 @@ Update specific brand
 
 BrandApi apiInstance = new BrandApi();
 BrandRequest body = new BrandRequest(); // BrandRequest | Brand request object
-Integer brandId = 56; // Integer | The brandId parameter in path
+String brandId = "brandId_example"; // String | The brandId parameter in path
 try {
     InlineResponse200 result = apiInstance.updateBrand(body, brandId);
     System.out.println(result);
@@ -268,7 +268,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**BrandRequest**](BrandRequest.md)| Brand request object |
- **brandId** | **Integer**| The brandId parameter in path |
+ **brandId** | **String**| The brandId parameter in path |
 
 ### Return type
 

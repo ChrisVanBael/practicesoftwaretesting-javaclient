@@ -160,7 +160,7 @@ This endpoint does not need any parameter.
 
 <a name="getCustomersByCountry"></a>
 # **getCustomersByCountry**
-> List&lt;Object&gt; getCustomersByCountry(country)
+> List&lt;Object&gt; getCustomersByCountry()
 
 Get customers by country
 
@@ -179,9 +179,8 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 
 ReportApi apiInstance = new ReportApi();
-String country = "The Netherlands"; // String | Specific year
 try {
-    List<Object> result = apiInstance.getCustomersByCountry(country);
+    List<Object> result = apiInstance.getCustomersByCountry();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReportApi#getCustomersByCountry");
@@ -190,10 +189,7 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **country** | **String**| Specific year | [optional] [default to The Netherlands]
+This endpoint does not need any parameter.
 
 ### Return type
 

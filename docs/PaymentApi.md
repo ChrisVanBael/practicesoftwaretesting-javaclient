@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 <a name="checkPayment"></a>
 # **checkPayment**
-> InlineResponse2004 checkPayment()
+> InlineResponse2004 checkPayment(body)
 
 Check payment
 
@@ -22,8 +22,9 @@ Check payment
 
 
 PaymentApi apiInstance = new PaymentApi();
+PaymentCheckBody body = new PaymentCheckBody(); // PaymentCheckBody | Invoice request object
 try {
-    InlineResponse2004 result = apiInstance.checkPayment();
+    InlineResponse2004 result = apiInstance.checkPayment(body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PaymentApi#checkPayment");
@@ -32,7 +33,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**PaymentCheckBody**](PaymentCheckBody.md)| Invoice request object |
 
 ### Return type
 
@@ -44,6 +48,6 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 

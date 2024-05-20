@@ -10,4 +10,4 @@ Name | Type | Description | Notes
 **fileName** | **String** |  |  [optional]
 **title** | **String** |  |  [optional]
 **createdAt** | **String** |  |  [optional]
-**id** | **Integer** |  |  [optional]
+**id** | **String** |  |  [optional]

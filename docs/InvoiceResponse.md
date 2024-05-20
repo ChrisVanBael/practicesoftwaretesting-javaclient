@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Integer** |  |  [optional]
+**id** | **String** |  |  [optional]
 **invoiceDate** | **String** |  |  [optional]
 **invoiceNumber** | **String** |  |  [optional]
 **billingAddress** | **String** |  |  [optional]
@@ -11,10 +11,10 @@ Name | Type | Description | Notes
 **billingCountry** | **String** |  |  [optional]
 **billingState** | **String** |  |  [optional]
 **billingPostcode** | **String** |  |  [optional]
+**additionalDiscountPercentage** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
+**additionalDiscountAmount** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
+**subtotal** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
 **total** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
-**paymentMethod** | **String** |  |  [optional]
-**paymentAccountName** | **String** |  |  [optional]
-**paymentAccountNumber** | **String** |  |  [optional]
 **status** | **String** |  |  [optional]
 **statusMessage** | **String** |  |  [optional]
-**invoicelines** | [**List&lt;InvoiceLineResponse&gt;**](InvoiceLineResponse.md) |  |  [optional]
+**invoiceItems** | [**List&lt;InvoiceLineResponse&gt;**](InvoiceLineResponse.md) |  |  [optional]

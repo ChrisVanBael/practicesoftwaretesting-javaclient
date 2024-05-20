@@ -33,7 +33,7 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 
 CategoryApi apiInstance = new CategoryApi();
-Integer categoryId = 56; // Integer | The categoryId parameter in path
+String categoryId = "categoryId_example"; // String | The categoryId parameter in path
 try {
     apiInstance.deleteCategory(categoryId);
 } catch (ApiException e) {
@@ -46,7 +46,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **categoryId** | **Integer**| The categoryId parameter in path |
+ **categoryId** | **String**| The categoryId parameter in path |
 
 ### Return type
 
@@ -163,7 +163,7 @@ Retrieve specific category
 
 
 CategoryApi apiInstance = new CategoryApi();
-Integer categoryId = 56; // Integer | The categoryId parameter in path
+String categoryId = "categoryId_example"; // String | The categoryId parameter in path
 try {
     CategoryResponse result = apiInstance.getCategory(categoryId);
     System.out.println(result);
@@ -177,7 +177,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **categoryId** | **Integer**| The categoryId parameter in path |
+ **categoryId** | **String**| The categoryId parameter in path |
 
 ### Return type
 
@@ -299,7 +299,7 @@ Update specific category
 
 CategoryApi apiInstance = new CategoryApi();
 CategoryRequest body = new CategoryRequest(); // CategoryRequest | Category request object
-Integer categoryId = 56; // Integer | The categoryId parameter in path
+String categoryId = "categoryId_example"; // String | The categoryId parameter in path
 try {
     InlineResponse200 result = apiInstance.updateCategory(body, categoryId);
     System.out.println(result);
@@ -314,7 +314,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**CategoryRequest**](CategoryRequest.md)| Category request object |
- **categoryId** | **Integer**| The categoryId parameter in path |
+ **categoryId** | **String**| The categoryId parameter in path |
 
 ### Return type
 
