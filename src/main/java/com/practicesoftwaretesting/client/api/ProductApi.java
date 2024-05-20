@@ -26,14 +26,9 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import com.practicesoftwaretesting.client.model.BrandResponse;
 import com.practicesoftwaretesting.client.model.InlineResponse200;
 import com.practicesoftwaretesting.client.model.InlineResponse2005;
 import com.practicesoftwaretesting.client.model.InlineResponse2011;
-import com.practicesoftwaretesting.client.model.InlineResponse401;
-import com.practicesoftwaretesting.client.model.InlineResponse404;
-import com.practicesoftwaretesting.client.model.InlineResponse4041;
-import com.practicesoftwaretesting.client.model.InlineResponse405;
 import com.practicesoftwaretesting.client.model.ProductRequest;
 import com.practicesoftwaretesting.client.model.ProductResponse;
 
@@ -253,11 +248,11 @@ public class ProductApi {
      * Retrieve specific product
      * Retrieve specific product
      * @param productId The productId parameter in path (required)
-     * @return BrandResponse
+     * @return ProductResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public BrandResponse getProduct(String productId) throws ApiException {
-        ApiResponse<BrandResponse> resp = getProductWithHttpInfo(productId);
+    public ProductResponse getProduct(String productId) throws ApiException {
+        ApiResponse<ProductResponse> resp = getProductWithHttpInfo(productId);
         return resp.getData();
     }
 
@@ -265,12 +260,12 @@ public class ProductApi {
      * Retrieve specific product
      * Retrieve specific product
      * @param productId The productId parameter in path (required)
-     * @return ApiResponse&lt;BrandResponse&gt;
+     * @return ApiResponse&lt;ProductResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<BrandResponse> getProductWithHttpInfo(String productId) throws ApiException {
+    public ApiResponse<ProductResponse> getProductWithHttpInfo(String productId) throws ApiException {
         com.squareup.okhttp.Call call = getProductValidateBeforeCall(productId, null, null);
-        Type localVarReturnType = new TypeToken<BrandResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProductResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -282,7 +277,7 @@ public class ProductApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getProductAsync(String productId, final ApiCallback<BrandResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getProductAsync(String productId, final ApiCallback<ProductResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -304,7 +299,7 @@ public class ProductApi {
         }
 
         com.squareup.okhttp.Call call = getProductValidateBeforeCall(productId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<BrandResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProductResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

@@ -66,7 +66,7 @@ public class ProductApiTest {
     @Test
     public void getProductTest() throws Exception {
         String productId = null;
-        BrandResponse response = api.getProduct(productId);
+        ProductResponse response = api.getProduct(productId);
 
         // TODO: test validations
     }
