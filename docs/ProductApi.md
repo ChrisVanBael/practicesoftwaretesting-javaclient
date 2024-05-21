@@ -63,7 +63,7 @@ null (empty response body)
 
 <a name="getProduct"></a>
 # **getProduct**
-> BrandResponse getProduct(productId)
+> ProductResponse getProduct(productId)
 
 Retrieve specific product
 
@@ -79,7 +79,7 @@ Retrieve specific product
 ProductApi apiInstance = new ProductApi();
 String productId = "productId_example"; // String | The productId parameter in path
 try {
-    BrandResponse result = apiInstance.getProduct(productId);
+    ProductResponse result = apiInstance.getProduct(productId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductApi#getProduct");
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BrandResponse**](BrandResponse.md)
+[**ProductResponse**](ProductResponse.md)
 
 ### Authorization
 

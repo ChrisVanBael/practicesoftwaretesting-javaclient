@@ -29,6 +29,10 @@ import java.io.IOException;
 import com.practicesoftwaretesting.client.model.InlineResponse200;
 import com.practicesoftwaretesting.client.model.InlineResponse2005;
 import com.practicesoftwaretesting.client.model.InlineResponse2011;
+import com.practicesoftwaretesting.client.model.InlineResponse401;
+import com.practicesoftwaretesting.client.model.InlineResponse404;
+import com.practicesoftwaretesting.client.model.InlineResponse4041;
+import com.practicesoftwaretesting.client.model.InlineResponse405;
 import com.practicesoftwaretesting.client.model.ProductRequest;
 import com.practicesoftwaretesting.client.model.ProductResponse;
 

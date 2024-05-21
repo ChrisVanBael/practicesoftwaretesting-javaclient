@@ -25,7 +25,7 @@ import java.io.IOException;
  * ImageResponse
  */
 
-@javax.annotation.Generated(value = "com.tesuqa.codegen.v3.generators.java.JavaClientCodegen", date = "2024-05-20T15:32:30.637801580Z[GMT]")
+@javax.annotation.Generated(value = "com.tesuqa.codegen.v3.generators.java.JavaClientCodegen", date = "2024-05-21T18:13:14.454153555Z[GMT]")
 
 public class ImageResponse {
   @SerializedName("by_name")
@@ -45,9 +45,6 @@ public class ImageResponse {
 
   @SerializedName("title")
   private String title = null;
-
-  @SerializedName("created_at")
-  private String createdAt = null;
 
   @SerializedName("id")
   private String id = null;
@@ -160,24 +157,6 @@ public class ImageResponse {
     this.title = title;
   }
 
-  public ImageResponse createdAt(String createdAt) {
-    this.createdAt = createdAt;
-    return this;
-  }
-
-   /**
-   * Get createdAt
-   * @return createdAt
-  **/
-  @Schema(example = "2022-08-01 08:24:56", description = "")
-  public String getCreatedAt() {
-    return createdAt;
-  }
-
-  public void setCreatedAt(String createdAt) {
-    this.createdAt = createdAt;
-  }
-
   public ImageResponse id(String id) {
     this.id = id;
     return this;
@@ -212,13 +191,12 @@ public class ImageResponse {
         Objects.equals(this.sourceUrl, imageResponse.sourceUrl) &&
         Objects.equals(this.fileName, imageResponse.fileName) &&
         Objects.equals(this.title, imageResponse.title) &&
-        Objects.equals(this.createdAt, imageResponse.createdAt) &&
         Objects.equals(this.id, imageResponse.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(byName, byUrl, sourceName, sourceUrl, fileName, title, createdAt, id);
+    return Objects.hash(byName, byUrl, sourceName, sourceUrl, fileName, title, id);
   }
 
 
@@ -233,7 +211,6 @@ public class ImageResponse {
     sb.append("    sourceUrl: ").append(toIndentedString(sourceUrl)).append("\n");
     sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();

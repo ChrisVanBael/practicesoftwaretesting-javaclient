@@ -28,6 +28,7 @@ import java.io.IOException;
 
 import com.practicesoftwaretesting.client.model.CategoryRequest;
 import com.practicesoftwaretesting.client.model.CategoryResponse;
+import com.practicesoftwaretesting.client.model.CategoryTreeResponse;
 import com.practicesoftwaretesting.client.model.InlineResponse200;
 import com.practicesoftwaretesting.client.model.InlineResponse401;
 import com.practicesoftwaretesting.client.model.InlineResponse404;
@@ -363,11 +364,11 @@ public class CategoryApi {
      * Retrieve all categories (including subcategories)
      * Retrieve all categories (including subcategories)
      * @param byCategorySlug Parent category slug (optional)
-     * @return List&lt;CategoryResponse&gt;
+     * @return List&lt;CategoryTreeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<CategoryResponse> getCategoriesTree(String byCategorySlug) throws ApiException {
-        ApiResponse<List<CategoryResponse>> resp = getCategoriesTreeWithHttpInfo(byCategorySlug);
+    public List<CategoryTreeResponse> getCategoriesTree(String byCategorySlug) throws ApiException {
+        ApiResponse<List<CategoryTreeResponse>> resp = getCategoriesTreeWithHttpInfo(byCategorySlug);
         return resp.getData();
     }
 
@@ -375,12 +376,12 @@ public class CategoryApi {
      * Retrieve all categories (including subcategories)
      * Retrieve all categories (including subcategories)
      * @param byCategorySlug Parent category slug (optional)
-     * @return ApiResponse&lt;List&lt;CategoryResponse&gt;&gt;
+     * @return ApiResponse&lt;List&lt;CategoryTreeResponse&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<CategoryResponse>> getCategoriesTreeWithHttpInfo(String byCategorySlug) throws ApiException {
+    public ApiResponse<List<CategoryTreeResponse>> getCategoriesTreeWithHttpInfo(String byCategorySlug) throws ApiException {
         com.squareup.okhttp.Call call = getCategoriesTreeValidateBeforeCall(byCategorySlug, null, null);
-        Type localVarReturnType = new TypeToken<List<CategoryResponse>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<CategoryTreeResponse>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -392,7 +393,7 @@ public class CategoryApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getCategoriesTreeAsync(String byCategorySlug, final ApiCallback<List<CategoryResponse>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getCategoriesTreeAsync(String byCategorySlug, final ApiCallback<List<CategoryTreeResponse>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -414,7 +415,7 @@ public class CategoryApi {
         }
 
         com.squareup.okhttp.Call call = getCategoriesTreeValidateBeforeCall(byCategorySlug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<CategoryResponse>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<CategoryTreeResponse>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -430,7 +431,7 @@ public class CategoryApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/categories/{categoryId}"
+        String localVarPath = "/categories/tree/{categoryId}"
             .replaceAll("\\{" + "categoryId" + "\\}", apiClient.escapeString(categoryId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -485,39 +486,39 @@ public class CategoryApi {
     }
 
     /**
-     * Retrieve specific category
-     * Retrieve specific category
+     * Retrieve specific category (including subcategories)
+     * Retrieve specific category (including subcategories)
      * @param categoryId The categoryId parameter in path (required)
-     * @return CategoryResponse
+     * @return CategoryTreeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CategoryResponse getCategory(String categoryId) throws ApiException {
-        ApiResponse<CategoryResponse> resp = getCategoryWithHttpInfo(categoryId);
+    public CategoryTreeResponse getCategory(String categoryId) throws ApiException {
+        ApiResponse<CategoryTreeResponse> resp = getCategoryWithHttpInfo(categoryId);
         return resp.getData();
     }
 
     /**
-     * Retrieve specific category
-     * Retrieve specific category
+     * Retrieve specific category (including subcategories)
+     * Retrieve specific category (including subcategories)
      * @param categoryId The categoryId parameter in path (required)
-     * @return ApiResponse&lt;CategoryResponse&gt;
+     * @return ApiResponse&lt;CategoryTreeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CategoryResponse> getCategoryWithHttpInfo(String categoryId) throws ApiException {
+    public ApiResponse<CategoryTreeResponse> getCategoryWithHttpInfo(String categoryId) throws ApiException {
         com.squareup.okhttp.Call call = getCategoryValidateBeforeCall(categoryId, null, null);
-        Type localVarReturnType = new TypeToken<CategoryResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CategoryTreeResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Retrieve specific category (asynchronously)
-     * Retrieve specific category
+     * Retrieve specific category (including subcategories) (asynchronously)
+     * Retrieve specific category (including subcategories)
      * @param categoryId The categoryId parameter in path (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getCategoryAsync(String categoryId, final ApiCallback<CategoryResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getCategoryAsync(String categoryId, final ApiCallback<CategoryTreeResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -539,7 +540,7 @@ public class CategoryApi {
         }
 
         com.squareup.okhttp.Call call = getCategoryValidateBeforeCall(categoryId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CategoryResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CategoryTreeResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

@@ -15,7 +15,7 @@ package com.practicesoftwaretesting.client;
 import java.util.Map;
 import java.util.List;
 
-@javax.annotation.Generated(value = "com.tesuqa.codegen.v3.generators.java.JavaClientCodegen", date = "2024-05-20T15:32:30.637801580Z[GMT]")
+@javax.annotation.Generated(value = "com.tesuqa.codegen.v3.generators.java.JavaClientCodegen", date = "2024-05-21T18:13:14.454153555Z[GMT]")
 public class ApiException extends Exception {
     private int code = 0;
     private Map<String, List<String>> responseHeaders = null;

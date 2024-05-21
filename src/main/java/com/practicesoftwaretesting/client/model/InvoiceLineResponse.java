@@ -27,7 +27,7 @@ import java.math.BigDecimal;
  * InvoiceLineResponse
  */
 
-@javax.annotation.Generated(value = "com.tesuqa.codegen.v3.generators.java.JavaClientCodegen", date = "2024-05-20T15:32:30.637801580Z[GMT]")
+@javax.annotation.Generated(value = "com.tesuqa.codegen.v3.generators.java.JavaClientCodegen", date = "2024-05-21T18:13:14.454153555Z[GMT]")
 
 public class InvoiceLineResponse {
   @SerializedName("id")

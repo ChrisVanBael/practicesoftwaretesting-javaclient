@@ -14,6 +14,7 @@ package com.practicesoftwaretesting.client.api;
 
 import com.practicesoftwaretesting.client.model.CategoryRequest;
 import com.practicesoftwaretesting.client.model.CategoryResponse;
+import com.practicesoftwaretesting.client.model.CategoryTreeResponse;
 import com.practicesoftwaretesting.client.model.InlineResponse200;
 import com.practicesoftwaretesting.client.model.InlineResponse401;
 import com.practicesoftwaretesting.client.model.InlineResponse404;
@@ -77,14 +78,14 @@ public class CategoryApiTest {
     @Test
     public void getCategoriesTreeTest() throws Exception {
         String byCategorySlug = null;
-        List<CategoryResponse> response = api.getCategoriesTree(byCategorySlug);
+        List<CategoryTreeResponse> response = api.getCategoriesTree(byCategorySlug);
 
         // TODO: test validations
     }
     /**
-     * Retrieve specific category
+     * Retrieve specific category (including subcategories)
      *
-     * Retrieve specific category
+     * Retrieve specific category (including subcategories)
      *
      * @throws Exception
      *          if the Api call fails
@@ -92,7 +93,7 @@ public class CategoryApiTest {
     @Test
     public void getCategoryTest() throws Exception {
         String categoryId = null;
-        CategoryResponse response = api.getCategory(categoryId);
+        CategoryTreeResponse response = api.getCategory(categoryId);
 
         // TODO: test validations
     }

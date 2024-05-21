@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**deleteCategory**](CategoryApi.md#deleteCategory) | **DELETE** /categories/{categoryId} | Delete specific category
 [**getCategories**](CategoryApi.md#getCategories) | **GET** /categories | Retrieve all categories
 [**getCategoriesTree**](CategoryApi.md#getCategoriesTree) | **GET** /categories/tree | Retrieve all categories (including subcategories)
-[**getCategory**](CategoryApi.md#getCategory) | **GET** /categories/{categoryId} | Retrieve specific category
+[**getCategory**](CategoryApi.md#getCategory) | **GET** /categories/tree/{categoryId} | Retrieve specific category (including subcategories)
 [**searchCategory**](CategoryApi.md#searchCategory) | **GET** /categories/search | Retrieve specific categories matching the search query
 [**storeCategory**](CategoryApi.md#storeCategory) | **POST** /categories | Store new category
 [**updateCategory**](CategoryApi.md#updateCategory) | **PUT** /categories/{categoryId} | Update specific category
@@ -104,7 +104,7 @@ No authorization required
 
 <a name="getCategoriesTree"></a>
 # **getCategoriesTree**
-> List&lt;CategoryResponse&gt; getCategoriesTree(byCategorySlug)
+> List&lt;CategoryTreeResponse&gt; getCategoriesTree(byCategorySlug)
 
 Retrieve all categories (including subcategories)
 
@@ -120,7 +120,7 @@ Retrieve all categories (including subcategories)
 CategoryApi apiInstance = new CategoryApi();
 String byCategorySlug = "byCategorySlug_example"; // String | Parent category slug
 try {
-    List<CategoryResponse> result = apiInstance.getCategoriesTree(byCategorySlug);
+    List<CategoryTreeResponse> result = apiInstance.getCategoriesTree(byCategorySlug);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CategoryApi#getCategoriesTree");
@@ -136,7 +136,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;CategoryResponse&gt;**](CategoryResponse.md)
+[**List&lt;CategoryTreeResponse&gt;**](CategoryTreeResponse.md)
 
 ### Authorization
 
@@ -149,11 +149,11 @@ No authorization required
 
 <a name="getCategory"></a>
 # **getCategory**
-> CategoryResponse getCategory(categoryId)
+> CategoryTreeResponse getCategory(categoryId)
 
-Retrieve specific category
+Retrieve specific category (including subcategories)
 
-Retrieve specific category
+Retrieve specific category (including subcategories)
 
 ### Example
 ```java
@@ -165,7 +165,7 @@ Retrieve specific category
 CategoryApi apiInstance = new CategoryApi();
 String categoryId = "categoryId_example"; // String | The categoryId parameter in path
 try {
-    CategoryResponse result = apiInstance.getCategory(categoryId);
+    CategoryTreeResponse result = apiInstance.getCategory(categoryId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CategoryApi#getCategory");
@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CategoryResponse**](CategoryResponse.md)
+[**CategoryTreeResponse**](CategoryTreeResponse.md)
 
 ### Authorization
 

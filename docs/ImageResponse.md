@@ -9,5 +9,4 @@ Name | Type | Description | Notes
 **sourceUrl** | **String** |  |  [optional]
 **fileName** | **String** |  |  [optional]
 **title** | **String** |  |  [optional]
-**createdAt** | **String** |  |  [optional]
 **id** | **String** |  |  [optional]

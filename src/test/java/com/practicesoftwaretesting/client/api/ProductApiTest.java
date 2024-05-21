@@ -12,7 +12,6 @@
 
 package com.practicesoftwaretesting.client.api;
 
-import com.practicesoftwaretesting.client.model.BrandResponse;
 import com.practicesoftwaretesting.client.model.InlineResponse200;
 import com.practicesoftwaretesting.client.model.InlineResponse2005;
 import com.practicesoftwaretesting.client.model.InlineResponse2011;

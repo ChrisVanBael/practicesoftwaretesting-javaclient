@@ -19,6 +19,7 @@ import com.practicesoftwaretesting.client.model.InlineResponse401;
 import com.practicesoftwaretesting.client.model.InlineResponse404;
 import com.practicesoftwaretesting.client.model.InlineResponse4041;
 import com.practicesoftwaretesting.client.model.InlineResponse405;
+import com.practicesoftwaretesting.client.model.InvoiceIdStatusBody;
 import com.practicesoftwaretesting.client.model.InvoiceRequest;
 import com.practicesoftwaretesting.client.model.InvoiceResponse;
 import org.junit.Test;
@@ -171,9 +172,9 @@ public class InvoiceApiTest {
      */
     @Test
     public void updateInvoiceStatusTest() throws Exception {
-        InvoiceRequest body = null;
         String invoiceId = null;
-        InlineResponse200 response = api.updateInvoiceStatus(body, invoiceId);
+        InvoiceIdStatusBody body = null;
+        InlineResponse200 response = api.updateInvoiceStatus(invoiceId, body);
 
         // TODO: test validations
     }

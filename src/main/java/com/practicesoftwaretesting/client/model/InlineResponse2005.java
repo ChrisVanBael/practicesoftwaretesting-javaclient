@@ -28,7 +28,7 @@ import java.util.List;
  * InlineResponse2005
  */
 
-@javax.annotation.Generated(value = "com.tesuqa.codegen.v3.generators.java.JavaClientCodegen", date = "2024-05-20T15:32:30.637801580Z[GMT]")
+@javax.annotation.Generated(value = "com.tesuqa.codegen.v3.generators.java.JavaClientCodegen", date = "2024-05-21T18:13:14.454153555Z[GMT]")
 
 public class InlineResponse2005 {
   @SerializedName("current_page")
@@ -37,17 +37,14 @@ public class InlineResponse2005 {
   @SerializedName("data")
   private List<ProductResponse> data = null;
 
-  @SerializedName("next_page_url")
-  private Integer nextPageUrl = null;
+  @SerializedName("from")
+  private Integer from = null;
 
-  @SerializedName("path")
-  private Integer path = null;
+  @SerializedName("last_page")
+  private Integer lastPage = null;
 
   @SerializedName("per_page")
   private Integer perPage = null;
-
-  @SerializedName("prev_page_url")
-  private Integer prevPageUrl = null;
 
   @SerializedName("to")
   private Integer to = null;
@@ -99,40 +96,40 @@ public class InlineResponse2005 {
     this.data = data;
   }
 
-  public InlineResponse2005 nextPageUrl(Integer nextPageUrl) {
-    this.nextPageUrl = nextPageUrl;
+  public InlineResponse2005 from(Integer from) {
+    this.from = from;
     return this;
   }
 
    /**
-   * Get nextPageUrl
-   * @return nextPageUrl
+   * Get from
+   * @return from
   **/
   @Schema(example = "1", description = "")
-  public Integer getNextPageUrl() {
-    return nextPageUrl;
+  public Integer getFrom() {
+    return from;
   }
 
-  public void setNextPageUrl(Integer nextPageUrl) {
-    this.nextPageUrl = nextPageUrl;
+  public void setFrom(Integer from) {
+    this.from = from;
   }
 
-  public InlineResponse2005 path(Integer path) {
-    this.path = path;
+  public InlineResponse2005 lastPage(Integer lastPage) {
+    this.lastPage = lastPage;
     return this;
   }
 
    /**
-   * Get path
-   * @return path
+   * Get lastPage
+   * @return lastPage
   **/
   @Schema(example = "1", description = "")
-  public Integer getPath() {
-    return path;
+  public Integer getLastPage() {
+    return lastPage;
   }
 
-  public void setPath(Integer path) {
-    this.path = path;
+  public void setLastPage(Integer lastPage) {
+    this.lastPage = lastPage;
   }
 
   public InlineResponse2005 perPage(Integer perPage) {
@@ -151,24 +148,6 @@ public class InlineResponse2005 {
 
   public void setPerPage(Integer perPage) {
     this.perPage = perPage;
-  }
-
-  public InlineResponse2005 prevPageUrl(Integer prevPageUrl) {
-    this.prevPageUrl = prevPageUrl;
-    return this;
-  }
-
-   /**
-   * Get prevPageUrl
-   * @return prevPageUrl
-  **/
-  @Schema(example = "1", description = "")
-  public Integer getPrevPageUrl() {
-    return prevPageUrl;
-  }
-
-  public void setPrevPageUrl(Integer prevPageUrl) {
-    this.prevPageUrl = prevPageUrl;
   }
 
   public InlineResponse2005 to(Integer to) {
@@ -219,17 +198,16 @@ public class InlineResponse2005 {
     InlineResponse2005 inlineResponse2005 = (InlineResponse2005) o;
     return Objects.equals(this.currentPage, inlineResponse2005.currentPage) &&
         Objects.equals(this.data, inlineResponse2005.data) &&
-        Objects.equals(this.nextPageUrl, inlineResponse2005.nextPageUrl) &&
-        Objects.equals(this.path, inlineResponse2005.path) &&
+        Objects.equals(this.from, inlineResponse2005.from) &&
+        Objects.equals(this.lastPage, inlineResponse2005.lastPage) &&
         Objects.equals(this.perPage, inlineResponse2005.perPage) &&
-        Objects.equals(this.prevPageUrl, inlineResponse2005.prevPageUrl) &&
         Objects.equals(this.to, inlineResponse2005.to) &&
         Objects.equals(this.total, inlineResponse2005.total);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currentPage, data, nextPageUrl, path, perPage, prevPageUrl, to, total);
+    return Objects.hash(currentPage, data, from, lastPage, perPage, to, total);
   }
 
 
@@ -240,10 +218,9 @@ public class InlineResponse2005 {
     
     sb.append("    currentPage: ").append(toIndentedString(currentPage)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    nextPageUrl: ").append(toIndentedString(nextPageUrl)).append("\n");
-    sb.append("    path: ").append(toIndentedString(path)).append("\n");
+    sb.append("    from: ").append(toIndentedString(from)).append("\n");
+    sb.append("    lastPage: ").append(toIndentedString(lastPage)).append("\n");
     sb.append("    perPage: ").append(toIndentedString(perPage)).append("\n");
-    sb.append("    prevPageUrl: ").append(toIndentedString(prevPageUrl)).append("\n");
     sb.append("    to: ").append(toIndentedString(to)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("}");
