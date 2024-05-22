@@ -19,15 +19,18 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.practicesoftwaretesting.client.model.CategoryResponse;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 /**
- * CategoryResponse
+ * CategoryTreeResponse
  */
 
 @javax.annotation.Generated(value = "com.tesuqa.codegen.v3.generators.java.JavaClientCodegen", date = "2024-05-22T07:51:27.258669159Z[GMT]")
 
-public class CategoryResponse {
+public class CategoryTreeResponse {
   @SerializedName("id")
   private Integer id = null;
 
@@ -40,7 +43,10 @@ public class CategoryResponse {
   @SerializedName("slug")
   private String slug = null;
 
-  public CategoryResponse id(Integer id) {
+  @SerializedName("sub_categories")
+  private List<CategoryResponse> subCategories = null;
+
+  public CategoryTreeResponse id(Integer id) {
     this.id = id;
     return this;
   }
@@ -58,7 +64,7 @@ public class CategoryResponse {
     this.id = id;
   }
 
-  public CategoryResponse parentId(Integer parentId) {
+  public CategoryTreeResponse parentId(Integer parentId) {
     this.parentId = parentId;
     return this;
   }
@@ -76,7 +82,7 @@ public class CategoryResponse {
     this.parentId = parentId;
   }
 
-  public CategoryResponse name(String name) {
+  public CategoryTreeResponse name(String name) {
     this.name = name;
     return this;
   }
@@ -94,7 +100,7 @@ public class CategoryResponse {
     this.name = name;
   }
 
-  public CategoryResponse slug(String slug) {
+  public CategoryTreeResponse slug(String slug) {
     this.slug = slug;
     return this;
   }
@@ -112,6 +118,32 @@ public class CategoryResponse {
     this.slug = slug;
   }
 
+  public CategoryTreeResponse subCategories(List<CategoryResponse> subCategories) {
+    this.subCategories = subCategories;
+    return this;
+  }
+
+  public CategoryTreeResponse addSubCategoriesItem(CategoryResponse subCategoriesItem) {
+    if (this.subCategories == null) {
+      this.subCategories = new ArrayList<CategoryResponse>();
+    }
+    this.subCategories.add(subCategoriesItem);
+    return this;
+  }
+
+   /**
+   * Get subCategories
+   * @return subCategories
+  **/
+  @Schema(description = "")
+  public List<CategoryResponse> getSubCategories() {
+    return subCategories;
+  }
+
+  public void setSubCategories(List<CategoryResponse> subCategories) {
+    this.subCategories = subCategories;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -121,28 +153,30 @@ public class CategoryResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CategoryResponse categoryResponse = (CategoryResponse) o;
-    return Objects.equals(this.id, categoryResponse.id) &&
-        Objects.equals(this.parentId, categoryResponse.parentId) &&
-        Objects.equals(this.name, categoryResponse.name) &&
-        Objects.equals(this.slug, categoryResponse.slug);
+    CategoryTreeResponse categoryTreeResponse = (CategoryTreeResponse) o;
+    return Objects.equals(this.id, categoryTreeResponse.id) &&
+        Objects.equals(this.parentId, categoryTreeResponse.parentId) &&
+        Objects.equals(this.name, categoryTreeResponse.name) &&
+        Objects.equals(this.slug, categoryTreeResponse.slug) &&
+        Objects.equals(this.subCategories, categoryTreeResponse.subCategories);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, parentId, name, slug);
+    return Objects.hash(id, parentId, name, slug, subCategories);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CategoryResponse {\n");
+    sb.append("class CategoryTreeResponse {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
+    sb.append("    subCategories: ").append(toIndentedString(subCategories)).append("\n");
     sb.append("}");
     return sb.toString();
   }

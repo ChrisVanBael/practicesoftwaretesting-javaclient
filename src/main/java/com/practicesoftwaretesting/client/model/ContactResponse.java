@@ -25,7 +25,7 @@ import java.io.IOException;
  * ContactResponse
  */
 
-@javax.annotation.Generated(value = "com.tesuqa.codegen.v3.generators.java.JavaClientCodegen", date = "2024-05-20T15:22:04.159411001Z[GMT]")
+@javax.annotation.Generated(value = "com.tesuqa.codegen.v3.generators.java.JavaClientCodegen", date = "2024-05-22T07:51:27.258669159Z[GMT]")
 
 public class ContactResponse {
   @SerializedName("name")

@@ -12,7 +12,6 @@
 
 package com.practicesoftwaretesting.client.api;
 
-import com.practicesoftwaretesting.client.model.BrandResponse;
 import com.practicesoftwaretesting.client.model.InlineResponse200;
 import com.practicesoftwaretesting.client.model.InlineResponse2004;
 import com.practicesoftwaretesting.client.model.InlineResponse201;
@@ -65,7 +64,7 @@ public class ProductApiTest {
     @Test
     public void getProductTest() throws Exception {
         Integer productId = null;
-        BrandResponse response = api.getProduct(productId);
+        ProductResponse response = api.getProduct(productId);
 
         // TODO: test validations
     }

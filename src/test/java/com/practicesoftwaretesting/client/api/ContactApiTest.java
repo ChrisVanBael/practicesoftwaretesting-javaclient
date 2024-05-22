@@ -12,7 +12,6 @@
 
 package com.practicesoftwaretesting.client.api;
 
-import com.practicesoftwaretesting.client.model.ContactReplyResponse;
 import com.practicesoftwaretesting.client.model.ContactRequest;
 import com.practicesoftwaretesting.client.model.ContactResponse;
 import com.practicesoftwaretesting.client.model.InlineResponse200;
@@ -21,7 +20,6 @@ import com.practicesoftwaretesting.client.model.InlineResponse401;
 import com.practicesoftwaretesting.client.model.InlineResponse404;
 import com.practicesoftwaretesting.client.model.InlineResponse4041;
 import com.practicesoftwaretesting.client.model.InlineResponse405;
-import com.practicesoftwaretesting.client.model.MessageIdStatusBody;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -79,41 +77,9 @@ public class ContactApiTest {
      *          if the Api call fails
      */
     @Test
-    public void replyToMessageTest() throws Exception {
-        ContactRequest body = null;
-        Integer messageId = null;
-        ContactReplyResponse response = api.replyToMessage(body, messageId);
-
-        // TODO: test validations
-    }
-    /**
-     * Send new contact message
-     *
-     * Send new contact message by mail
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
     public void sendMessageTest() throws Exception {
         ContactRequest body = null;
         InlineResponse200 response = api.sendMessage(body);
-
-        // TODO: test validations
-    }
-    /**
-     * Set a new message status
-     *
-     * Set a new message status. Possible values: &#x60;NEW&#x60;, &#x60;IN_PROGRESS&#x60;, &#x60;RESOLVED&#x60;
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void updateMessageStatusTest() throws Exception {
-        Integer messageId = null;
-        MessageIdStatusBody body = null;
-        InlineResponse200 response = api.updateMessageStatus(messageId, body);
 
         // TODO: test validations
     }
