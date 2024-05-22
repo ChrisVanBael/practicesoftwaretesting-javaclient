@@ -18,8 +18,6 @@ Method | HTTP request | Description
 
 Delete specific category
 
-Delete a specific category
-
 ### Example
 ```java
 // Import classes:

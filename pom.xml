@@ -8,11 +8,7 @@
   <version>0.2.0</version>
   <url>https://github.com/swagger-api/swagger-codegen</url>
   <description>Swagger Java</description>
-  <scm>
-    <connection>scm:git:git@github.com:swagger-api/swagger-codegen.git</connection>
-    <developerConnection>scm:git:git@github.com:swagger-api/swagger-codegen.git</developerConnection>
-    <url>https://github.com/swagger-api/swagger-codegen</url>
-  </scm>
+
   <prerequisites>
     <maven>2.2.0</maven>
   </prerequisites>
@@ -36,6 +32,36 @@
 
   <build>
     <plugins>
+      <!-- first generate the sources based on the openapi json file-->
+<!--      <plugin>
+        <groupId>org.openapitools</groupId>
+        <artifactId>openapi-generator-maven-plugin</artifactId>
+        <version>7.6.0</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <configuration>
+              <inputSpec>https://api.practicesoftwaretesting.com/docs/api-docs.json</inputSpec>
+              <generatorName>java</generatorName>
+              <configOptions>
+                <sourceFolder>src/gen/java/main</sourceFolder>
+                <apiPackage>${project.groupId}.client</apiPackage>
+                <modelPackage>${project.groupId}.client</modelPackage>
+                <packageName>practicesoftwaretesting</packageName>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>${project.artifactId}</artifactId>
+                <artifactVersion>${version}</artifactVersion>
+              </configOptions>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>-->
+
+      <!-- copy the generated files from the target directory -->
+
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
@@ -52,6 +78,7 @@
           <forkMode>pertest</forkMode>
         </configuration>
       </plugin>
+
       <plugin>
         <artifactId>maven-dependency-plugin</artifactId>
         <executions>
@@ -98,6 +125,7 @@
             <configuration>
               <sources>
                 <source>src/main/java</source>
+                <!--<source>${project.build.directory}/generated-sources/openapi/src/gen/java</source>-->
               </sources>
             </configuration>
           </execution>
@@ -110,6 +138,7 @@
             <configuration>
               <sources>
                 <source>src/test/java</source>
+                <!--<source>${project.build.directory}/generated-sources/openapi/src/test/java</source>-->
               </sources>
             </configuration>
           </execution>
@@ -128,6 +157,7 @@
           </execution>
         </executions>
       </plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
@@ -164,6 +194,7 @@
           </algorithms>
         </configuration>
       </plugin>
+
     </plugins>
   </build>
 
@@ -239,9 +270,30 @@
       <artifactId>checksum-maven-plugin</artifactId>
       <version>1.11</version>
     </dependency>
+    <dependency>
+      <groupId>org.openapitools</groupId>
+      <artifactId>openapi-generator-maven-plugin</artifactId>
+      <version>${openapi-version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.squareup.okhttp3</groupId>
+      <artifactId>okhttp</artifactId>
+      <version>${okhttp3-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.squareup.okhttp3</groupId>
+      <artifactId>logging-interceptor</artifactId>
+      <version>${okhttp3-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openapitools</groupId>
+      <artifactId>jackson-databind-nullable</artifactId>
+      <version>0.2.6</version>
+    </dependency>
   </dependencies>
   <properties>
-    <java.version>1.7</java.version>
+    <java.version>1.8</java.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <swagger-core-version>2.0.0</swagger-core-version>
@@ -251,6 +303,8 @@
     <threetenbp-version>1.3.5</threetenbp-version>
     <maven-plugin-version>1.0.0</maven-plugin-version>
     <junit-version>4.13.1</junit-version>
+    <openapi-version>7.6.0</openapi-version>
+    <okhttp3-version>4.12.0</okhttp3-version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 </project>
