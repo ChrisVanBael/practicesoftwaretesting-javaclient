@@ -28,7 +28,7 @@ import java.util.List;
  * InvoiceRequest
  */
 
-@javax.annotation.Generated(value = "com.tesuqa.codegen.v3.generators.java.JavaClientCodegen", date = "2024-05-20T14:52:53.240598658Z[GMT]")
+@javax.annotation.Generated(value = "com.tesuqa.codegen.v3.generators.java.JavaClientCodegen", date = "2024-05-22T07:49:46.846672640Z[GMT]")
 
 public class InvoiceRequest {
   @SerializedName("first_name")
@@ -79,7 +79,7 @@ public class InvoiceRequest {
    * Get firstName
    * @return firstName
   **/
-  @Schema(description = "")
+  @Schema(example = "John", description = "")
   public String getFirstName() {
     return firstName;
   }
@@ -97,7 +97,7 @@ public class InvoiceRequest {
    * Get lastName
    * @return lastName
   **/
-  @Schema(description = "")
+  @Schema(example = "Doe", description = "")
   public String getLastName() {
     return lastName;
   }
@@ -115,7 +115,7 @@ public class InvoiceRequest {
    * Get email
    * @return email
   **/
-  @Schema(description = "")
+  @Schema(example = "john.doe@example.com", description = "")
   public String getEmail() {
     return email;
   }
@@ -259,7 +259,7 @@ public class InvoiceRequest {
    * Get paymentAccountName
    * @return paymentAccountName
   **/
-  @Schema(example = "Jogn Doe", description = "")
+  @Schema(example = "John Doe", description = "")
   public String getPaymentAccountName() {
     return paymentAccountName;
   }

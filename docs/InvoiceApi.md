@@ -9,7 +9,6 @@ Method | HTTP request | Description
 [**getInvoices**](InvoiceApi.md#getInvoices) | **GET** /invoices | Retrieve all invoices
 [**searchInvoice**](InvoiceApi.md#searchInvoice) | **GET** /invoices/search | Retrieve specific invoices matching the search query
 [**storeInvoice**](InvoiceApi.md#storeInvoice) | **POST** /invoices | Store new invoice
-[**updateInvoice**](InvoiceApi.md#updateInvoice) | **PUT** /invoices/{invoiceId} | Update specific invoice
 [**updateInvoiceStatus**](InvoiceApi.md#updateInvoiceStatus) | **PUT** /invoices/{invoiceId}/status | Update invoice status
 
 <a name="deleteInvoice"></a>
@@ -105,7 +104,7 @@ No authorization required
 
 Retrieve all invoices
 
-&#x60;user&#x60; retrieves only related invoices
+Retrieves invoices
 
 ### Example
 ```java
@@ -236,56 +235,9 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="updateInvoice"></a>
-# **updateInvoice**
-> InlineResponse200 updateInvoice(body, invoiceId)
-
-Update specific invoice
-
-Update specific invoice
-
-### Example
-```java
-// Import classes:
-//import com.practicesoftwaretesting.client.ApiException;
-//import com.practicesoftwaretesting.client.api.InvoiceApi;
-
-
-InvoiceApi apiInstance = new InvoiceApi();
-InvoiceRequest body = new InvoiceRequest(); // InvoiceRequest | Invoice request object
-Integer invoiceId = 56; // Integer | The invoiceId parameter in path
-try {
-    InlineResponse200 result = apiInstance.updateInvoice(body, invoiceId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling InvoiceApi#updateInvoice");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**InvoiceRequest**](InvoiceRequest.md)| Invoice request object |
- **invoiceId** | **Integer**| The invoiceId parameter in path |
-
-### Return type
-
-[**InlineResponse200**](InlineResponse200.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
 <a name="updateInvoiceStatus"></a>
 # **updateInvoiceStatus**
-> InlineResponse200 updateInvoiceStatus(body, invoiceId)
+> InlineResponse200 updateInvoiceStatus(invoiceId, body)
 
 Update invoice status
 
@@ -299,10 +251,10 @@ Update invoice status
 
 
 InvoiceApi apiInstance = new InvoiceApi();
-InvoiceRequest body = new InvoiceRequest(); // InvoiceRequest | Invoice request object
 Integer invoiceId = 56; // Integer | The invoiceId parameter in path
+InvoiceIdStatusBody body = new InvoiceIdStatusBody(); // InvoiceIdStatusBody | 
 try {
-    InlineResponse200 result = apiInstance.updateInvoiceStatus(body, invoiceId);
+    InlineResponse200 result = apiInstance.updateInvoiceStatus(invoiceId, body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling InvoiceApi#updateInvoiceStatus");
@@ -314,8 +266,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InvoiceRequest**](InvoiceRequest.md)| Invoice request object |
  **invoiceId** | **Integer**| The invoiceId parameter in path |
+ **body** | [**InvoiceIdStatusBody**](InvoiceIdStatusBody.md)|  | [optional]
 
 ### Return type
 

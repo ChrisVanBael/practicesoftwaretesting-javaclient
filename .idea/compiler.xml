@@ -9,8 +9,5 @@
         <module name="practicesoftwaretesting-javaclient" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="practicesoftwaretesting-javaclient" target="1.7" />
-    </bytecodeTargetLevel>
   </component>
 </project>

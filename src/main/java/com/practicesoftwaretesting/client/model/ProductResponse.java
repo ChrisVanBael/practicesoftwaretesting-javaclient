@@ -29,7 +29,7 @@ import java.math.BigDecimal;
  * ProductResponse
  */
 
-@javax.annotation.Generated(value = "com.tesuqa.codegen.v3.generators.java.JavaClientCodegen", date = "2024-05-20T14:52:53.240598658Z[GMT]")
+@javax.annotation.Generated(value = "com.tesuqa.codegen.v3.generators.java.JavaClientCodegen", date = "2024-05-22T07:49:46.846672640Z[GMT]")
 
 public class ProductResponse {
   @SerializedName("id")

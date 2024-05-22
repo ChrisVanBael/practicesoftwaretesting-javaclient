@@ -17,6 +17,7 @@ import com.practicesoftwaretesting.client.model.InlineResponse2001;
 import com.practicesoftwaretesting.client.model.InlineResponse404;
 import com.practicesoftwaretesting.client.model.InlineResponse4041;
 import com.practicesoftwaretesting.client.model.InlineResponse405;
+import com.practicesoftwaretesting.client.model.InvoiceIdStatusBody;
 import com.practicesoftwaretesting.client.model.InvoiceRequest;
 import com.practicesoftwaretesting.client.model.InvoiceResponse;
 import org.junit.Test;
@@ -70,7 +71,7 @@ public class InvoiceApiTest {
     /**
      * Retrieve all invoices
      *
-     * &#x60;user&#x60; retrieves only related invoices
+     * Retrieves invoices
      *
      * @throws Exception
      *          if the Api call fails
@@ -114,22 +115,6 @@ public class InvoiceApiTest {
         // TODO: test validations
     }
     /**
-     * Update specific invoice
-     *
-     * Update specific invoice
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void updateInvoiceTest() throws Exception {
-        InvoiceRequest body = null;
-        Integer invoiceId = null;
-        InlineResponse200 response = api.updateInvoice(body, invoiceId);
-
-        // TODO: test validations
-    }
-    /**
      * Update invoice status
      *
      * Update invoice status
@@ -139,9 +124,9 @@ public class InvoiceApiTest {
      */
     @Test
     public void updateInvoiceStatusTest() throws Exception {
-        InvoiceRequest body = null;
         Integer invoiceId = null;
-        InlineResponse200 response = api.updateInvoiceStatus(body, invoiceId);
+        InvoiceIdStatusBody body = null;
+        InlineResponse200 response = api.updateInvoiceStatus(invoiceId, body);
 
         // TODO: test validations
     }
