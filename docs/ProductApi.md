@@ -18,6 +18,8 @@ Method | HTTP request | Description
 
 Delete specific product
 
+Delete a specific product
+
 ### Example
 ```java
 // Import classes:
@@ -56,7 +58,7 @@ No authorization required
 
 <a name="getProduct"></a>
 # **getProduct**
-> BrandResponse getProduct(productId)
+> ProductResponse getProduct(productId)
 
 Retrieve specific product
 
@@ -72,7 +74,7 @@ Retrieve specific product
 ProductApi apiInstance = new ProductApi();
 Integer productId = 56; // Integer | The productId parameter in path
 try {
-    BrandResponse result = apiInstance.getProduct(productId);
+    ProductResponse result = apiInstance.getProduct(productId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductApi#getProduct");
@@ -88,7 +90,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BrandResponse**](BrandResponse.md)
+[**ProductResponse**](ProductResponse.md)
 
 ### Authorization
 
@@ -101,7 +103,7 @@ No authorization required
 
 <a name="getProducts"></a>
 # **getProducts**
-> InlineResponse2001 getProducts(byBrand, byCategory, isRental)
+> InlineResponse2001 getProducts(byBrand, byCategory, sort, page)
 
 Retrieve all products
 
@@ -117,9 +119,10 @@ Retrieve all products
 ProductApi apiInstance = new ProductApi();
 Integer byBrand = 56; // Integer | Id of brand
 Integer byCategory = 56; // Integer | Id of category
-String isRental = "isRental_example"; // String | Indication if we like to retrieve rentals products
+String sort = "sort_example"; // String | Can be used to sort based on specific column value, like: name,asc OR name,desc OR price,asc OR price,desc
+Integer page = 56; // Integer | pagenumber
 try {
-    InlineResponse2001 result = apiInstance.getProducts(byBrand, byCategory, isRental);
+    InlineResponse2001 result = apiInstance.getProducts(byBrand, byCategory, sort, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductApi#getProducts");
@@ -133,7 +136,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **byBrand** | **Integer**| Id of brand | [optional]
  **byCategory** | **Integer**| Id of category | [optional]
- **isRental** | **String**| Indication if we like to retrieve rentals products | [optional]
+ **sort** | **String**| Can be used to sort based on specific column value, like: name,asc OR name,desc OR price,asc OR price,desc | [optional]
+ **page** | **Integer**| pagenumber | [optional]
 
 ### Return type
 
@@ -195,7 +199,7 @@ No authorization required
 
 <a name="searchProduct"></a>
 # **searchProduct**
-> InlineResponse2001 searchProduct(q)
+> InlineResponse2001 searchProduct(q, page)
 
 Retrieve specific products matching the search query
 
@@ -210,8 +214,9 @@ Search is performed on the &#x60;name&#x60; column
 
 ProductApi apiInstance = new ProductApi();
 String q = "q_example"; // String | A query phrase
+Integer page = 56; // Integer | pagenumber
 try {
-    InlineResponse2001 result = apiInstance.searchProduct(q);
+    InlineResponse2001 result = apiInstance.searchProduct(q, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductApi#searchProduct");
@@ -224,6 +229,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **q** | **String**| A query phrase |
+ **page** | **Integer**| pagenumber | [optional]
 
 ### Return type
 
