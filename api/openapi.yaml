@@ -1,0 +1,984 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: info@testsmith.io
+    name: Testsmith
+  description: Toolshop REST API technical description
+  title: Toolshop API
+  version: 1.0.0
+servers:
+- description: Deployed environment
+  url: https://api-v1.practicesoftwaretesting.com
+- description: Local environment
+  url: http://localhost:8091
+paths:
+  /brands:
+    get:
+      description: Retrieve all brands
+      operationId: getBrands
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/BrandResponse'
+                type: array
+          description: Successful operation
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundResponse'
+          description: Returns when the resource is not found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MethodNotAllowedResponse'
+          description: Returns when the method is not allowed for the requested route
+      summary: Retrieve all brands
+      tags:
+      - Brand
+      x-accepts: application/json
+    post:
+      description: Store new brand
+      operationId: storeBrand
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BrandRequest'
+        description: Brand request object
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BrandResponse'
+          description: Successful operation
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemNotFoundResponse'
+          description: Returns when the resource is not found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MethodNotAllowedResponse'
+          description: Returns when the method is not allowed for the requested route
+        "422":
+          description: Returns when the server was not able to process the content
+      summary: Store new brand
+      tags:
+      - Brand
+      x-content-type: application/json
+      x-accepts: application/json
+  /brands/{brandId}:
+    delete:
+      description: ""
+      operationId: deleteBrand
+      parameters:
+      - description: The brandId parameter in path
+        example: 1
+        explode: false
+        in: path
+        name: brandId
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "204":
+          description: Successful operation
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemNotFoundResponse'
+          description: Returns when the resource is not found
+        "409":
+          description: Returns when the entity is used elsewhere
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MethodNotAllowedResponse'
+          description: Returns when the method is not allowed for the requested route
+        "422":
+          description: Returns when the server was not able to process the content
+      summary: Delete specific brand
+      tags:
+      - Brand
+      x-accepts: application/json
+    get:
+      description: Retrieve specific brand
+      operationId: getBrand
+      parameters:
+      - description: The brandId parameter in path
+        example: 1
+        explode: false
+        in: path
+        name: brandId
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BrandResponse'
+          description: Successful operation
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemNotFoundResponse'
+          description: Returns when the resource is not found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MethodNotAllowedResponse'
+          description: Returns when the method is not allowed for the requested route
+      summary: Retrieve specific brand
+      tags:
+      - Brand
+      x-accepts: application/json
+    put:
+      description: Update specific brand
+      operationId: updateBrand
+      parameters:
+      - description: The brandId parameter in path
+        example: 1
+        explode: false
+        in: path
+        name: brandId
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BrandRequest'
+        description: Brand request object
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateResponse'
+          description: Result of the update
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemNotFoundResponse'
+          description: Returns when the resource is not found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MethodNotAllowedResponse'
+          description: Returns when the method is not allowed for the requested route
+        "422":
+          description: Returns when the server was not able to process the content
+      summary: Update specific brand
+      tags:
+      - Brand
+      x-content-type: application/json
+      x-accepts: application/json
+  /categories/tree:
+    get:
+      description: Retrieve all categories (including subcategories)
+      operationId: getCategoriesTree
+      parameters:
+      - description: Parent category slug
+        explode: true
+        in: query
+        name: by_category_slug
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CategoryTreeResponse'
+                type: array
+          description: Successful operation
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundResponse'
+          description: Returns when the resource is not found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MethodNotAllowedResponse'
+          description: Returns when the method is not allowed for the requested route
+      summary: Retrieve all categories (including subcategories)
+      tags:
+      - Category
+      x-accepts: application/json
+  /categories:
+    get:
+      description: Retrieve all categories
+      operationId: getCategories
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CategoryResponse'
+                type: array
+          description: Successful operation
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundResponse'
+          description: Returns when the resource is not found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MethodNotAllowedResponse'
+          description: Returns when the method is not allowed for the requested route
+      summary: Retrieve all categories
+      tags:
+      - Category
+      x-accepts: application/json
+    post:
+      description: Store new category
+      operationId: storeCategory
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CategoryRequest'
+        description: Category request object
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoryResponse'
+          description: Successful operation
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemNotFoundResponse'
+          description: Returns when the resource is not found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MethodNotAllowedResponse'
+          description: Returns when the method is not allowed for the requested route
+        "422":
+          description: Returns when the server was not able to process the content
+      summary: Store new category
+      tags:
+      - Category
+      x-content-type: application/json
+      x-accepts: application/json
+  /categories/tree/{categoryId}:
+    get:
+      description: Retrieve specific category (including subcategories)
+      operationId: getCategory
+      parameters:
+      - description: The categoryId parameter in path
+        example: 1
+        explode: false
+        in: path
+        name: categoryId
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoryTreeResponse'
+          description: Successful operation
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemNotFoundResponse'
+          description: Returns when the resource is not found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MethodNotAllowedResponse'
+          description: Returns when the method is not allowed for the requested route
+      summary: Retrieve specific category (including subcategories)
+      tags:
+      - Category
+      x-accepts: application/json
+  /categories/{categoryId}:
+    delete:
+      description: ""
+      operationId: deleteCategory
+      parameters:
+      - description: The categoryId parameter in path
+        example: 1
+        explode: false
+        in: path
+        name: categoryId
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "204":
+          description: Successful operation
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemNotFoundResponse'
+          description: Returns when the resource is not found
+        "409":
+          description: Returns when the entity is used elsewhere
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MethodNotAllowedResponse'
+          description: Returns when the method is not allowed for the requested route
+        "422":
+          description: Returns when the server was not able to process the content
+      summary: Delete specific category
+      tags:
+      - Category
+      x-accepts: application/json
+    put:
+      description: Update specific category
+      operationId: updateCategory
+      parameters:
+      - description: The categoryId parameter in path
+        example: 1
+        explode: false
+        in: path
+        name: categoryId
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CategoryRequest'
+        description: Category request object
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateResponse'
+          description: Result of the update
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundResponse'
+          description: Returns when the resource is not found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MethodNotAllowedResponse'
+          description: Returns when the method is not allowed for the requested route
+        "422":
+          description: Returns when the server was not able to process the content
+      summary: Update specific category
+      tags:
+      - Category
+      x-content-type: application/json
+      x-accepts: application/json
+  /images:
+    get:
+      description: Retrieve all images
+      operationId: getImages
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ImageResponse'
+                type: array
+          description: Successful operation
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemNotFoundResponse'
+          description: Returns when the resource is not found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MethodNotAllowedResponse'
+          description: Returns when the method is not allowed for the requested route
+      summary: Retrieve all images
+      tags:
+      - Image
+      x-accepts: application/json
+  /products:
+    get:
+      description: Retrieve all products
+      operationId: getProducts
+      parameters:
+      - description: Id of brand
+        explode: true
+        in: query
+        name: by_brand
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Id of category
+        explode: true
+        in: query
+        name: by_category
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Indication if we like to retrieve rentals products
+        explode: true
+        in: query
+        name: is_rental
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ProductResponse'
+                type: array
+          description: Successful operation
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemNotFoundResponse'
+          description: Returns when the resource is not found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MethodNotAllowedResponse'
+          description: Returns when the method is not allowed for the requested route
+      summary: Retrieve all products
+      tags:
+      - Product
+      x-accepts: application/json
+    post:
+      description: Store new product
+      operationId: storeProduct
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductRequest'
+        description: Product request object
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StoreProductResponse'
+          description: Returns when product is created
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemNotFoundResponse'
+          description: Returns when the resource is not found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MethodNotAllowedResponse'
+          description: Returns when the method is not allowed for the requested route
+        "422":
+          description: Returns when the server was not able to process the content
+      summary: Store new product
+      tags:
+      - Product
+      x-content-type: application/json
+      x-accepts: application/json
+  /products/{productId}:
+    delete:
+      description: ""
+      operationId: deleteProduct
+      parameters:
+      - description: The productId parameter in path
+        explode: false
+        in: path
+        name: productId
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "204":
+          description: Successful operation
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemNotFoundResponse'
+          description: Returns when the resource is not found
+        "409":
+          description: Returns when the entity is used elsewhere
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MethodNotAllowedResponse'
+          description: Returns when the method is not allowed for the requested route
+        "422":
+          description: Returns when the server was not able to process the content
+      summary: Delete specific product
+      tags:
+      - Product
+      x-accepts: application/json
+    get:
+      description: Retrieve specific product
+      operationId: getProduct
+      parameters:
+      - description: The productId parameter in path
+        example: 1
+        explode: false
+        in: path
+        name: productId
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductResponse'
+          description: Successful operation
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemNotFoundResponse'
+          description: Returns when the resource is not found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MethodNotAllowedResponse'
+          description: Returns when the method is not allowed for the requested route
+      summary: Retrieve specific product
+      tags:
+      - Product
+      x-accepts: application/json
+    put:
+      description: Update specific product
+      operationId: updateProduct
+      parameters:
+      - description: The productId parameter in path
+        explode: false
+        in: path
+        name: productId
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductRequest'
+        description: Product request object
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateResponse'
+          description: Result of the update
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemNotFoundResponse'
+          description: Returns when the resource is not found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MethodNotAllowedResponse'
+          description: Returns when the method is not allowed for the requested route
+        "422":
+          description: Returns when the server was not able to process the content
+      summary: Update specific product
+      tags:
+      - Product
+      x-content-type: application/json
+      x-accepts: application/json
+  /products/{productId}/related:
+    get:
+      description: Retrieve related products
+      operationId: getRelatedProducts
+      parameters:
+      - description: The productId parameter in path
+        example: 1
+        explode: false
+        in: path
+        name: productId
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ProductResponse'
+                type: array
+          description: Successful operation
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemNotFoundResponse'
+          description: Returns when the resource is not found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MethodNotAllowedResponse'
+          description: Returns when the method is not allowed for the requested route
+      summary: Retrieve related products
+      tags:
+      - Product
+      x-accepts: application/json
+components:
+  responses:
+    UpdateResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UpdateResponse'
+      description: Result of the update
+    UnauthorizedResponse:
+      content:
+        application/json:
+          schema:
+            properties:
+              message:
+                example: Unauthorized
+                type: string
+            title: UnauthorizedResponse
+            type: object
+      description: Returns when user is not authenticated
+    ItemNotFoundResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ItemNotFoundResponse'
+      description: Returns when the resource is not found
+    ResourceNotFoundResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ResourceNotFoundResponse'
+      description: Returns when the resource is not found
+    ConflictResponse:
+      description: Returns when the entity is used elsewhere
+    MethodNotAllowedResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MethodNotAllowedResponse'
+      description: Returns when the method is not allowed for the requested route
+    UnprocessableEntityResponse:
+      description: Returns when the server was not able to process the content
+  schemas:
+    BrandRequest:
+      example:
+        name: new brand
+        slug: new-brand
+      properties:
+        name:
+          description: ""
+          example: new brand
+          type: string
+        slug:
+          description: "URL part, words separated by hyphen"
+          example: new-brand
+          type: string
+      title: BrandRequest
+      type: object
+    BrandResponse:
+      example:
+        name: new brand
+        id: 0
+        slug: new-brand
+      properties:
+        id:
+          type: integer
+        name:
+          example: new brand
+          type: string
+        slug:
+          example: new-brand
+          type: string
+      title: BrandResponse
+      type: object
+    CategoryRequest:
+      example:
+        name: new category
+        slug: new-category
+      properties:
+        name:
+          description: ""
+          example: new category
+          type: string
+        slug:
+          description: "URL part, words separated by hyphen"
+          example: new-category
+          type: string
+      title: CategoryRequest
+      type: object
+    CategoryTreeResponse:
+      example:
+        sub_categories:
+        - parent_id: 5
+          name: new category
+          id: 1
+          slug: new-category
+        - parent_id: 5
+          name: new category
+          id: 1
+          slug: new-category
+        parent_id: 6
+        name: new category
+        id: 0
+        slug: new-category
+      properties:
+        id:
+          type: integer
+        parent_id:
+          type: integer
+        name:
+          example: new category
+          type: string
+        slug:
+          example: new-category
+          type: string
+        sub_categories:
+          items:
+            $ref: '#/components/schemas/CategoryResponse'
+          type: array
+      title: CategoryTreeResponse
+      type: object
+    CategoryResponse:
+      example:
+        parent_id: 5
+        name: new category
+        id: 1
+        slug: new-category
+      properties:
+        id:
+          type: integer
+        parent_id:
+          type: integer
+        name:
+          example: new category
+          type: string
+        slug:
+          example: new-category
+          type: string
+      title: CategoryResponse
+      type: object
+    ProductRequest:
+      example:
+        category_id: 1
+        price: 1.99
+        name: name
+        description: description
+        product_image_id: 1
+        brand_id: 1
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        price:
+          example: 1.99
+          type: number
+        category_id:
+          example: 1
+          type: integer
+        brand_id:
+          example: 1
+          type: integer
+        product_image_id:
+          example: 1
+          type: integer
+      title: ProductRequest
+      type: object
+    ProductResponse:
+      example:
+        price: 9.99
+        product_image:
+          file_name: file_name
+          by_url: by_url
+          by_name: by_name
+          id: 0
+          title: title
+          source_name: source_name
+          source_url: source_url
+        name: new brand
+        description: Lorum ipsum
+        id: 1
+        category:
+          parent_id: 5
+          name: new category
+          id: 1
+          slug: new-category
+        brand:
+          name: new brand
+          id: 0
+          slug: new-brand
+      properties:
+        id:
+          example: 1
+          type: integer
+        name:
+          example: new brand
+          type: string
+        description:
+          example: Lorum ipsum
+          type: string
+        price:
+          example: 9.99
+          type: number
+        brand:
+          $ref: '#/components/schemas/BrandResponse'
+        category:
+          $ref: '#/components/schemas/CategoryResponse'
+        product_image:
+          $ref: '#/components/schemas/ImageResponse'
+      title: ProductResponse
+      type: object
+    ImageResponse:
+      example:
+        file_name: file_name
+        by_url: by_url
+        by_name: by_name
+        id: 0
+        title: title
+        source_name: source_name
+        source_url: source_url
+      properties:
+        by_name:
+          type: string
+        by_url:
+          type: string
+        source_name:
+          type: string
+        source_url:
+          type: string
+        file_name:
+          type: string
+        title:
+          type: string
+        id:
+          type: integer
+      title: ImageResponse
+      type: object
+    ResourceNotFoundResponse:
+      properties:
+        message:
+          example: Resource not found
+          type: string
+      title: ResourceNotFoundResponse
+      type: object
+    MethodNotAllowedResponse:
+      properties:
+        message:
+          example: Method is not allowed for the requested route
+          type: string
+      title: MethodNotAllowedResponse
+      type: object
+    ItemNotFoundResponse:
+      properties:
+        message:
+          example: Requested item not found
+          type: string
+      title: ItemNotFoundResponse
+      type: object
+    UpdateResponse:
+      example:
+        success: true
+      properties:
+        success:
+          example: true
+          type: boolean
+      title: UpdateResponse
+      type: object
+    StoreProductResponse:
+      example:
+        price: 9.99
+        name: Lorum ipsum
+        description: Lorum ipsum
+        id: 1
+      properties:
+        id:
+          example: 1
+          type: integer
+        name:
+          example: Lorum ipsum
+          type: string
+        description:
+          example: Lorum ipsum
+          type: string
+        price:
+          example: 9.99
+          type: number
+      title: StoreProductResponse
+      type: object
+

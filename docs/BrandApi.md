@@ -2,42 +2,57 @@
 
 All URIs are relative to *https://api-v1.practicesoftwaretesting.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**deleteBrand**](BrandApi.md#deleteBrand) | **DELETE** /brands/{brandId} | Delete specific brand
-[**getBrand**](BrandApi.md#getBrand) | **GET** /brands/{brandId} | Retrieve specific brand
-[**getBrands**](BrandApi.md#getBrands) | **GET** /brands | Retrieve all brands
-[**storeBrand**](BrandApi.md#storeBrand) | **POST** /brands | Store new brand
-[**updateBrand**](BrandApi.md#updateBrand) | **PUT** /brands/{brandId} | Update specific brand
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**deleteBrand**](BrandApi.md#deleteBrand) | **DELETE** /brands/{brandId} | Delete specific brand |
+| [**getBrand**](BrandApi.md#getBrand) | **GET** /brands/{brandId} | Retrieve specific brand |
+| [**getBrands**](BrandApi.md#getBrands) | **GET** /brands | Retrieve all brands |
+| [**storeBrand**](BrandApi.md#storeBrand) | **POST** /brands | Store new brand |
+| [**updateBrand**](BrandApi.md#updateBrand) | **PUT** /brands/{brandId} | Update specific brand |
 
-<a name="deleteBrand"></a>
+
+<a id="deleteBrand"></a>
 # **deleteBrand**
 > deleteBrand(brandId)
 
 Delete specific brand
 
+
+
 ### Example
 ```java
 // Import classes:
-//import com.practicesoftwaretesting.client.ApiException;
-//import com.practicesoftwaretesting.client.api.BrandApi;
+import com.practicesoftwaretesting.client.ApiClient;
+import com.practicesoftwaretesting.client.ApiException;
+import com.practicesoftwaretesting.client.Configuration;
+import com.practicesoftwaretesting.client.models.*;
+import com.practicesoftwaretesting.client.api.BrandApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api-v1.practicesoftwaretesting.com");
 
-BrandApi apiInstance = new BrandApi();
-Integer brandId = 56; // Integer | The brandId parameter in path
-try {
-    apiInstance.deleteBrand(brandId);
-} catch (ApiException e) {
-    System.err.println("Exception when calling BrandApi#deleteBrand");
-    e.printStackTrace();
+    BrandApi apiInstance = new BrandApi(defaultClient);
+    Integer brandId = 1; // Integer | The brandId parameter in path
+    try {
+      apiInstance.deleteBrand(brandId);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling BrandApi#deleteBrand");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **brandId** | **Integer**| The brandId parameter in path |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **brandId** | **Integer**| The brandId parameter in path | |
 
 ### Return type
 
@@ -52,7 +67,16 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="getBrand"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Successful operation |  -  |
+| **404** | Returns when the resource is not found |  -  |
+| **409** | Returns when the entity is used elsewhere |  -  |
+| **405** | Returns when the method is not allowed for the requested route |  -  |
+| **422** | Returns when the server was not able to process the content |  -  |
+
+<a id="getBrand"></a>
 # **getBrand**
 > BrandResponse getBrand(brandId)
 
@@ -63,26 +87,38 @@ Retrieve specific brand
 ### Example
 ```java
 // Import classes:
-//import com.practicesoftwaretesting.client.ApiException;
-//import com.practicesoftwaretesting.client.api.BrandApi;
+import com.practicesoftwaretesting.client.ApiClient;
+import com.practicesoftwaretesting.client.ApiException;
+import com.practicesoftwaretesting.client.Configuration;
+import com.practicesoftwaretesting.client.models.*;
+import com.practicesoftwaretesting.client.api.BrandApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api-v1.practicesoftwaretesting.com");
 
-BrandApi apiInstance = new BrandApi();
-Integer brandId = 56; // Integer | The brandId parameter in path
-try {
-    BrandResponse result = apiInstance.getBrand(brandId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling BrandApi#getBrand");
-    e.printStackTrace();
+    BrandApi apiInstance = new BrandApi(defaultClient);
+    Integer brandId = 1; // Integer | The brandId parameter in path
+    try {
+      BrandResponse result = apiInstance.getBrand(brandId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling BrandApi#getBrand");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **brandId** | **Integer**| The brandId parameter in path |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **brandId** | **Integer**| The brandId parameter in path | |
 
 ### Return type
 
@@ -97,7 +133,14 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="getBrands"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful operation |  -  |
+| **404** | Returns when the resource is not found |  -  |
+| **405** | Returns when the method is not allowed for the requested route |  -  |
+
+<a id="getBrands"></a>
 # **getBrands**
 > List&lt;BrandResponse&gt; getBrands()
 
@@ -108,17 +151,29 @@ Retrieve all brands
 ### Example
 ```java
 // Import classes:
-//import com.practicesoftwaretesting.client.ApiException;
-//import com.practicesoftwaretesting.client.api.BrandApi;
+import com.practicesoftwaretesting.client.ApiClient;
+import com.practicesoftwaretesting.client.ApiException;
+import com.practicesoftwaretesting.client.Configuration;
+import com.practicesoftwaretesting.client.models.*;
+import com.practicesoftwaretesting.client.api.BrandApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api-v1.practicesoftwaretesting.com");
 
-BrandApi apiInstance = new BrandApi();
-try {
-    List<BrandResponse> result = apiInstance.getBrands();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling BrandApi#getBrands");
-    e.printStackTrace();
+    BrandApi apiInstance = new BrandApi(defaultClient);
+    try {
+      List<BrandResponse> result = apiInstance.getBrands();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling BrandApi#getBrands");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -138,9 +193,16 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="storeBrand"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful operation |  -  |
+| **404** | Returns when the resource is not found |  -  |
+| **405** | Returns when the method is not allowed for the requested route |  -  |
+
+<a id="storeBrand"></a>
 # **storeBrand**
-> BrandResponse storeBrand(body)
+> BrandResponse storeBrand(brandRequest)
 
 Store new brand
 
@@ -149,26 +211,38 @@ Store new brand
 ### Example
 ```java
 // Import classes:
-//import com.practicesoftwaretesting.client.ApiException;
-//import com.practicesoftwaretesting.client.api.BrandApi;
+import com.practicesoftwaretesting.client.ApiClient;
+import com.practicesoftwaretesting.client.ApiException;
+import com.practicesoftwaretesting.client.Configuration;
+import com.practicesoftwaretesting.client.models.*;
+import com.practicesoftwaretesting.client.api.BrandApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api-v1.practicesoftwaretesting.com");
 
-BrandApi apiInstance = new BrandApi();
-BrandRequest body = new BrandRequest(); // BrandRequest | Brand request object
-try {
-    BrandResponse result = apiInstance.storeBrand(body);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling BrandApi#storeBrand");
-    e.printStackTrace();
+    BrandApi apiInstance = new BrandApi(defaultClient);
+    BrandRequest brandRequest = new BrandRequest(); // BrandRequest | Brand request object
+    try {
+      BrandResponse result = apiInstance.storeBrand(brandRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling BrandApi#storeBrand");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**BrandRequest**](BrandRequest.md)| Brand request object |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **brandRequest** | [**BrandRequest**](BrandRequest.md)| Brand request object | |
 
 ### Return type
 
@@ -183,9 +257,17 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="updateBrand"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Successful operation |  -  |
+| **404** | Returns when the resource is not found |  -  |
+| **405** | Returns when the method is not allowed for the requested route |  -  |
+| **422** | Returns when the server was not able to process the content |  -  |
+
+<a id="updateBrand"></a>
 # **updateBrand**
-> InlineResponse200 updateBrand(body, brandId)
+> UpdateResponse updateBrand(brandId, brandRequest)
 
 Update specific brand
 
@@ -194,32 +276,44 @@ Update specific brand
 ### Example
 ```java
 // Import classes:
-//import com.practicesoftwaretesting.client.ApiException;
-//import com.practicesoftwaretesting.client.api.BrandApi;
+import com.practicesoftwaretesting.client.ApiClient;
+import com.practicesoftwaretesting.client.ApiException;
+import com.practicesoftwaretesting.client.Configuration;
+import com.practicesoftwaretesting.client.models.*;
+import com.practicesoftwaretesting.client.api.BrandApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api-v1.practicesoftwaretesting.com");
 
-BrandApi apiInstance = new BrandApi();
-BrandRequest body = new BrandRequest(); // BrandRequest | Brand request object
-Integer brandId = 56; // Integer | The brandId parameter in path
-try {
-    InlineResponse200 result = apiInstance.updateBrand(body, brandId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling BrandApi#updateBrand");
-    e.printStackTrace();
+    BrandApi apiInstance = new BrandApi(defaultClient);
+    Integer brandId = 1; // Integer | The brandId parameter in path
+    BrandRequest brandRequest = new BrandRequest(); // BrandRequest | Brand request object
+    try {
+      UpdateResponse result = apiInstance.updateBrand(brandId, brandRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling BrandApi#updateBrand");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**BrandRequest**](BrandRequest.md)| Brand request object |
- **brandId** | **Integer**| The brandId parameter in path |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **brandId** | **Integer**| The brandId parameter in path | |
+| **brandRequest** | [**BrandRequest**](BrandRequest.md)| Brand request object | |
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**UpdateResponse**](UpdateResponse.md)
 
 ### Authorization
 
@@ -229,4 +323,12 @@ No authorization required
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Result of the update |  -  |
+| **404** | Returns when the resource is not found |  -  |
+| **405** | Returns when the method is not allowed for the requested route |  -  |
+| **422** | Returns when the server was not able to process the content |  -  |
 
