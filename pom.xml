@@ -346,6 +346,11 @@
             <version>${junit-platform-runner.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>net.nicoulaj.maven.plugins</groupId>
+            <artifactId>checksum-maven-plugin</artifactId>
+            <version>1.11</version>
+        </dependency>
     </dependencies>
     <properties>
         <java.version>1.8</java.version>
