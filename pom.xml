@@ -95,6 +95,11 @@
             <version>2.18.2</version>
         </dependency>
         <dependency>
+            <groupId>org.openapitools</groupId>
+            <artifactId>jackson-databind-nullable</artifactId>
+            <version>0.2.6</version> <!-- Or latest version -->
+        </dependency>
+        <dependency>
             <groupId>com.google.code.findbugs</groupId>
             <artifactId>jsr305</artifactId>
             <version>3.0.2</version>
@@ -323,6 +328,25 @@
                                 <algorithm>MD5</algorithm>
                                 <algorithm>SHA-1</algorithm>
                             </algorithms>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Generate to local repo directory -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>3.1.1</version>
+                <executions>
+                    <execution>
+                        <id>local-deploy</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                        <configuration>
+                            <altDeploymentRepository>local::default::file://${project.basedir}/repo</altDeploymentRepository>
                         </configuration>
                     </execution>
                 </executions>
