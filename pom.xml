@@ -9,6 +9,16 @@
     <version>1.0.0-snapshot</version>
     <packaging>jar</packaging>
 
+    <properties>
+        <openapi.url>https://api-v1.practicesoftwaretesting.com/docs?api-docs.json</openapi.url>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>17</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <openapi-generator.version>7.2.0</openapi-generator.version>
+    </properties>
+
     <name>practicesoftwaretesting-javaclient</name>
     <description>OpenAPITools openapi-generator generated Java client for PracticeSoftwareTesing.com</description>
     <url>https://github.com/swagger-api/swagger-codegen</url>
@@ -33,16 +43,6 @@
         <developerConnection>scm:git:ssh://github.com/example/api-client.git</developerConnection>
         <url>https://github.com/example/api-client</url>
     </scm>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>17</java.version>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
-        <openapi-generator.version>7.2.0</openapi-generator.version>
-        <openapi.url>https://api-v1.practicesoftwaretesting.com/docs?api-docs.json</openapi.url>
-    </properties>
 
     <dependencies>
         <dependency>
@@ -150,7 +150,7 @@
                             <apiPackage>com.practicesoftwaretesting.client.api</apiPackage>
                             <modelPackage>com.practicesoftwaretesting.client.model</modelPackage>
                             <invokerPackage>com.practicesoftwaretesting.client</invokerPackage>
-                            <output>${project.basedir}</output>
+                            <output>${project.build.directory}/generated-sources/openapi</output>
                         </configuration>
                     </execution>
                 </executions>
