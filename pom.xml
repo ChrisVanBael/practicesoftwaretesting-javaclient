@@ -6,7 +6,7 @@
 
     <groupId>com.practicesoftwaretesting</groupId>
     <artifactId>practicesoftwaretesting-javaclient</artifactId>
-    <version>1.0.0-snapshot</version>
+    <version>0.1.0</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -143,7 +143,7 @@
                     <!-- copy the generated pom file to  -->
                     <execution>
                         <id>copy-generated-pom</id>
-                        <phase>package</phase>
+                        <phase>process-resources</phase>
                         <goals>
                             <goal>run</goal>
                         </goals>
@@ -158,14 +158,14 @@
                     <!-- Last execution for copying build artifacts to upload directory at verify phase at the end -->
                     <execution>
                         <id>copy-build-artifacts</id>
-                        <phase>install</phase>
+                        <phase>verify</phase>
                         <goals>
                             <goal>run</goal>
                         </goals>
                         <configuration>
                             <target>
-                                <mkdir dir="${project.build.directory}/upload"/>
-                                <copy todir="${project.build.directory}/upload">
+                                <mkdir dir="${project.build.directory}/upload/${project.version}"/>
+                                <copy todir="${project.build.directory}/upload/${project.version}">
                                     <fileset dir="${project.build.directory}">
                                         <include name="*.jar"/>
                                         <include name="*.pom"/>
@@ -186,6 +186,8 @@
                 <version>${openapi-generator.version}</version>
                 <executions>
                     <execution>
+                        <id>generate-client-code</id>
+                        <phase>generate-sources</phase>
                         <goals>
                             <goal>generate</goal>
                         </goals>
@@ -234,48 +236,16 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.11.0</version>
+                <executions>
+                    <execution>
+                        <id>compile-source</id>
+                        <phase>compile</phase>
+                    </execution>
+                </executions>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
                 </configuration>
-            </plugin>
-
-            <!-- attach the generated pom file -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-install-plugin</artifactId>
-                <version>3.1.1</version>
-                <executions>
-                    <execution>
-                        <id>install-generated-pom</id>
-                        <phase>install</phase>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                        <configuration>
-                            <file>${project.build.directory}/generated-sources/openapi/pom.xml</file>
-                            <groupId>com.practicesoftwaretesting</groupId>
-                            <artifactId>practicesoftwaretesting-javaclient</artifactId>
-                            <version>1.0.0-snapshot</version>
-                            <packaging>pom</packaging>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <!-- package source into a jar file -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>3.3.0</version>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
 
             <!-- package the classes into jar files -->
@@ -297,7 +267,8 @@
                     </execution>
                     <!-- Package test classes into a test JAR -->
                     <execution>
-                        <id>test-jar</id>
+                        <!--<id>test-jar</id>-->
+                        <id>create-tests-jar</id>
                         <phase>package</phase>
                         <goals>
                             <goal>test-jar</goal>
@@ -313,7 +284,9 @@
                 <version>3.6.3</version>
                 <executions>
                     <execution>
-                        <id>attach-javadocs</id>
+                        <!--<id>attach-javadocs</id>-->
+                        <id>create-javadocs-jar</id>
+                        <phase>package</phase>
                         <goals>
                             <goal>jar</goal>
                         </goals>
@@ -332,7 +305,8 @@
                 <version>1.11</version>
                 <executions>
                     <execution>
-                        <phase>verify</phase>
+                        <id>generate-checksums</id>
+                        <phase>post-integration-test</phase>
                         <goals>
                             <goal>files</goal>
                         </goals>
@@ -360,5 +334,4 @@
 
         </plugins>
     </build>
-
 </project>
