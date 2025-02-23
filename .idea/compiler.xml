@@ -12,7 +12,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="practicesoftwaretesting-javaclient" options="-Xlint:all -J-Xss4m" />
+      <module name="practicesoftwaretesting-javaclient" options="" />
     </option>
   </component>
 </project>
