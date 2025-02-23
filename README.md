@@ -2,13 +2,13 @@
 
 This project generates a Java client library for the Practice Software Testing API.   
 It is generated using [OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator).  
-OpenAPI spec can be found at [api-v1.practicesoftwaretesting.com](https://api-v1.practicesoftwaretesting.com).
+OpenAPI spec can be found at [api-v2.practicesoftwaretesting.com](https://api-v1.practicesoftwaretesting.com).
 
 If you want to generate other versions of the API, you need to:
 - checkout another branch
 or in pom.xml change
 - the _\<version>0.1.0\</version>"_ property
-- the _\<openapi.url>https://api-v1.practicesoftwaretesting.com/docs?api-docs.json\</openapi.url>_ property
+- the _\<openapi.url>https://api-v2.practicesoftwaretesting.com/docs?api-docs.json\</openapi.url>_ property
 
 
 ## Requirements
