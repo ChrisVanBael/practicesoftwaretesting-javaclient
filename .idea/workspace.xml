@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11a36eca-2987-47d4-8b7b-084ffa6fb63d" name="Changes" comment="Working version">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README_DEV.md" beforeDir="false" afterPath="$PROJECT_DIR$/README_DEV.md" afterDir="false" />
+    <list default="true" id="11a36eca-2987-47d4-8b7b-084ffa6fb63d" name="Changes" comment="commit change">
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,6 +76,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Remove distribution stages" />
     <MESSAGE value="Working version" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working version" />
+    <MESSAGE value="commit change" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit change" />
   </component>
 </project>
