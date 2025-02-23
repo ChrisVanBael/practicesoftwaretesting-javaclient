@@ -199,7 +199,6 @@
                                 <library>okhttp-gson</library>
                                 <hideGenerationTimestamp>true</hideGenerationTimestamp>
                                 <serializationLibrary>gson</serializationLibrary>
-                                <sourceFolder>src/main/java</sourceFolder>
                             </configOptions>
                             <!-- set locations of files -->
                             <apiPackage>com.practicesoftwaretesting.client.api</apiPackage>
@@ -261,9 +260,6 @@
                         <goals>
                             <goal>jar</goal>
                         </goals>
-                        <configuration>
-                            <classesDirectory>${project.build.directory}/generated-sources/openapi</classesDirectory>
-                        </configuration>
                     </execution>
                     <!-- Package test classes into a test JAR -->
                     <execution>
