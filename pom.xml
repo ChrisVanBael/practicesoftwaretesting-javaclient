@@ -6,11 +6,11 @@
 
     <groupId>com.practicesoftwaretesting</groupId>
     <artifactId>practicesoftwaretesting-javaclient</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
     <packaging>jar</packaging>
 
     <properties>
-        <openapi.url>https://api-v1.practicesoftwaretesting.com/docs?api-docs.json</openapi.url>
+        <openapi.url>https://api-v2.practicesoftwaretesting.com/docs?api-docs.json</openapi.url>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>17</java.version>
@@ -40,9 +40,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>io.swagger</groupId>
+            <groupId>io.swagger.core.v3</groupId>
             <artifactId>swagger-annotations</artifactId>
-            <version>1.6.12</version>
+            <version>2.2.21</version>
         </dependency>
         <dependency>
             <groupId>com.squareup.okhttp3</groupId>
