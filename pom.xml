@@ -16,7 +16,7 @@
         <java.version>17</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <openapi-generator.version>7.2.0</openapi-generator.version>
+        <openapi-generator.version>7.6.0</openapi-generator.version>
     </properties>
 
     <name>practicesoftwaretesting-javaclient</name>
@@ -37,12 +37,6 @@
             <organization>tesuqa</organization>
         </developer>
     </developers>
-
-    <scm>
-        <connection>scm:git:git://github.com/example/api-client.git</connection>
-        <developerConnection>scm:git:ssh://github.com/example/api-client.git</developerConnection>
-        <url>https://github.com/example/api-client</url>
-    </scm>
 
     <dependencies>
         <dependency>
@@ -85,6 +79,26 @@
             <artifactId>javax.ws.rs-api</artifactId>
             <version>2.1.1</version>
         </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.16.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.16.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.16.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+            <version>3.0.2</version>
+        </dependency>
 
         <!-- Test Dependencies -->
         <dependency>
@@ -103,12 +117,13 @@
 
     <build>
         <plugins>
-            <!-- Download OpenAPI Spec -->
+            <!-- file operations -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-antrun-plugin</artifactId>
                 <version>3.1.0</version>
                 <executions>
+                    <!-- First execution for downloading OpenAPI spec -->
                     <execution>
                         <id>download-openapi-spec</id>
                         <phase>generate-sources</phase>
@@ -121,6 +136,43 @@
                                 <get src="${openapi.url}"
                                      dest="${project.build.directory}/openapi/openapi.json"
                                      skipexisting="false"/>
+                            </target>
+                        </configuration>
+                    </execution>
+
+                    <!-- copy the generated pom file to  -->
+                    <execution>
+                        <id>copy-generated-pom</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <copy file="${project.build.directory}/generated-sources/openapi/pom.xml"
+                                      tofile="${project.build.directory}/${project.artifactId}-${project.version}.pom"/>
+                            </target>
+                        </configuration>
+                    </execution>
+
+                    <!-- Last execution for copying build artifacts to upload directory at verify phase at the end -->
+                    <execution>
+                        <id>copy-build-artifacts</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <mkdir dir="${project.build.directory}/upload"/>
+                                <copy todir="${project.build.directory}/upload">
+                                    <fileset dir="${project.build.directory}">
+                                        <include name="*.jar"/>
+                                        <include name="*.pom"/>
+                                        <include name="*.md5"/>
+                                        <include name="*.sha1"/>
+                                    </fileset>
+                                </copy>
                             </target>
                         </configuration>
                     </execution>
@@ -147,10 +199,31 @@
                                 <serializationLibrary>gson</serializationLibrary>
                                 <sourceFolder>src/main/java</sourceFolder>
                             </configOptions>
+                            <!-- set locations of files -->
                             <apiPackage>com.practicesoftwaretesting.client.api</apiPackage>
                             <modelPackage>com.practicesoftwaretesting.client.model</modelPackage>
                             <invokerPackage>com.practicesoftwaretesting.client</invokerPackage>
+
+                            <!-- set properties in generated pom file -->
+                            <groupId>com.practicesoftwaretesting</groupId>
+                            <artifactId>practicesoftwaretesting-javaclient</artifactId>
+                            <artifactVersion>${project.version}</artifactVersion>
                             <output>${project.build.directory}/generated-sources/openapi</output>
+
+                            <!-- All metadata properties should be in additionalProperties -->
+                            <additionalProperties>
+                                <additionalProperty>name=practicesoftwaretesting-javaclient</additionalProperty>
+                                <additionalProperty>title=practicesoftwaretesting-javaclient</additionalProperty>
+                                <additionalProperty>artifactDescription=OpenAPITools openapi-generator generated Java client for PracticeSoftwareTesting.com</additionalProperty>
+                                <additionalProperty>description=OpenAPITools openapi-generator generated Java client for PracticeSoftwareTesting.com</additionalProperty>
+                                <additionalProperty>url=https://github.com/ChrisVanBael/practicesoftwaretesting-javaclient</additionalProperty>
+                                <additionalProperty>licenseName=The GNU General Public License 3.0</additionalProperty>
+                                <additionalProperty>licenseUrl=https://www.gnu.org/licenses/gpl-3.0.html</additionalProperty>
+                                <additionalProperty>developerName=Chris Van Bael</additionalProperty>
+                                <additionalProperty>developerEmail=chris@tesuqa.com</additionalProperty>
+                                <additionalProperty>developerOrganization=tesuqa</additionalProperty>
+                                <additionalProperty>developerOrganizationUrl=https://www.tesuqa.com</additionalProperty>
+                            </additionalProperties>
                         </configuration>
                     </execution>
                 </executions>
@@ -167,7 +240,30 @@
                 </configuration>
             </plugin>
 
-            <!-- Source JAR -->
+            <!-- attach the generated pom file -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>3.1.1</version>
+                <executions>
+                    <execution>
+                        <id>install-generated-pom</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                        <configuration>
+                            <file>${project.build.directory}/generated-sources/openapi/pom.xml</file>
+                            <groupId>com.practicesoftwaretesting</groupId>
+                            <artifactId>practicesoftwaretesting-javaclient</artifactId>
+                            <version>1.0.0-snapshot</version>
+                            <packaging>pom</packaging>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- package source into a jar file -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -176,13 +272,41 @@
                     <execution>
                         <id>attach-sources</id>
                         <goals>
-                            <goal>jar-no-fork</goal>
+                            <goal>jar</goal>
                         </goals>
                     </execution>
                 </executions>
             </plugin>
 
-            <!-- Javadoc -->
+            <!-- package the classes into jar files -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <executions>
+                    <!-- Package the main JAR -->
+                    <execution>
+                        <id>default-jar</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <classesDirectory>${project.build.directory}/generated-sources/openapi</classesDirectory>
+                        </configuration>
+                    </execution>
+                    <!-- Package test classes into a test JAR -->
+                    <execution>
+                        <id>test-jar</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>test-jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- package javadocs into a jar file -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
@@ -193,22 +317,43 @@
                         <goals>
                             <goal>jar</goal>
                         </goals>
+                        <configuration>
+                            <failOnError>false</failOnError>  <!-- Ignore Javadoc errors -->
+                            <additionalOptions>-Xdoclint:none</additionalOptions>  <!-- Suppress linting issues -->
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
 
-            <!-- GPG Signing -->
+            <!-- Generate checksums -->
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <version>3.1.0</version>
+                <groupId>net.nicoulaj.maven.plugins</groupId>
+                <artifactId>checksum-maven-plugin</artifactId>
+                <version>1.11</version>
                 <executions>
                     <execution>
-                        <id>sign-artifacts</id>
                         <phase>verify</phase>
                         <goals>
-                            <goal>sign</goal>
+                            <goal>files</goal>
                         </goals>
+                        <configuration>
+                            <fileSets>
+                                <fileSet>
+                                    <directory>${project.build.directory}</directory>
+                                    <includes>
+                                        <include>${project.build.finalName}.jar</include>
+                                        <include>${project.build.finalName}-sources.jar</include>
+                                        <include>${project.build.finalName}-javadoc.jar</include>
+                                        <include>${project.build.finalName}-tests.jar</include>
+                                        <include>${project.build.finalName}.pom</include>
+                                    </includes>
+                                </fileSet>
+                            </fileSets>
+                            <algorithms>
+                                <algorithm>MD5</algorithm>
+                                <algorithm>SHA-1</algorithm>
+                            </algorithms>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
@@ -216,27 +361,4 @@
         </plugins>
     </build>
 
-    <profiles>
-        <profile>
-            <id>release</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>3.1.0</version>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 </project>

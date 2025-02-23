@@ -4,37 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11a36eca-2987-47d4-8b7b-084ffa6fb63d" name="Changes" comment="No generated files, correct version of pom to generate, but it overwrites itself.">
-      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/openapi.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.sbt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/BrandApi.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/BrandRequest.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/BrandResponse.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/CategoryApi.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/CategoryRequest.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/CategoryResponse.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/CategoryTreeResponse.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ImageApi.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ImageResponse.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ItemNotFoundResponse.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/MethodNotAllowedResponse.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ProductApi.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ProductRequest.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ProductResponse.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ResourceNotFoundResponse.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/StoreProductResponse.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/UpdateResponse.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/git_push.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
+    <list default="true" id="11a36eca-2987-47d4-8b7b-084ffa6fb63d" name="Changes" comment="Remove distribution stages">
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/AndroidManifest.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +46,27 @@
       <option name="presentableId" value="Default" />
       <updated>1740250901732</updated>
     </task>
+    <task id="LOCAL-00001" summary="Remove distribution stages">
+      <option name="closed" value="true" />
+      <created>1740301062722</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1740301062722</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Remove distribution stages">
+      <option name="closed" value="true" />
+      <created>1740301104170</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1740301104170</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Remove distribution stages" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove distribution stages" />
   </component>
 </project>
