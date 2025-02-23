@@ -204,7 +204,6 @@
                                 <library>okhttp-gson</library>
                                 <hideGenerationTimestamp>true</hideGenerationTimestamp>
                                 <serializationLibrary>gson</serializationLibrary>
-                                <sourceFolder>src/main/java</sourceFolder>
                             </configOptions>
                             <!-- set locations of files -->
                             <apiPackage>com.practicesoftwaretesting.client.api</apiPackage>
@@ -266,9 +265,6 @@
                         <goals>
                             <goal>jar</goal>
                         </goals>
-                        <configuration>
-                            <classesDirectory>${project.build.directory}/generated-sources/openapi</classesDirectory>
-                        </configuration>
                     </execution>
                     <!-- Package test classes into a test JAR -->
                     <execution>
@@ -332,6 +328,25 @@
                                 <algorithm>MD5</algorithm>
                                 <algorithm>SHA-1</algorithm>
                             </algorithms>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Generate to local repo directory -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>3.1.1</version>
+                <executions>
+                    <execution>
+                        <id>local-deploy</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                        <configuration>
+                            <altDeploymentRepository>local::default::file://${project.basedir}/repo</altDeploymentRepository>
                         </configuration>
                     </execution>
                 </executions>
